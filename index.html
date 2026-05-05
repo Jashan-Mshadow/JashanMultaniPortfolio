@@ -16,9 +16,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;line-height:1.6}
 
-/* SCROLL PROGRESS */
-#progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--purple),var(--cyan),var(--pink));z-index:10000;width:0%;transition:width .08s linear;pointer-events:none}
-
 #loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .6s,transform .6s}
 #loader.out{opacity:0;transform:translateY(-20px);pointer-events:none}
 .l-mark{width:64px;height:64px;opacity:0;animation:lFade .5s .1s forwards}
@@ -38,7 +35,6 @@ body{background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-ser
 #bg-canvas{position:fixed;inset:0;z-index:0}
 .flashlight{position:fixed;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.18) 0%,rgba(124,58,237,.06) 40%,transparent 70%);pointer-events:none;z-index:2;transform:translate(-50%,-50%);transition:left .07s ease,top .07s ease}
 
-/* NAV */
 nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:200;padding:.8rem 1.8rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s;opacity:0;animation:navIn .6s 2s forwards;width:calc(100% - 4rem);max-width:1100px;background:rgba(14,8,32,.55);border:1px solid rgba(168,85,247,.25);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
 @keyframes navIn{from{opacity:0;transform:translate(-50%,8px)}to{opacity:1;transform:translate(-50%,0)}}
 .nav-logo{text-decoration:none;display:flex;align-items:center;cursor:pointer}
@@ -49,30 +45,13 @@ nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:200;padd
 .nav-hire{font-family:'Space Mono',monospace;font-size:.7rem;font-weight:700;padding:.5rem 1.3rem;border-radius:8px;background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;text-decoration:none;transition:all .3s}
 .nav-hire:hover{opacity:.88;transform:translateY(-1px);box-shadow:0 8px 24px rgba(124,58,237,.45)}
 
-/* HAMBURGER */
-.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:6px;background:none;border:none;z-index:201}
-.hb-line{width:22px;height:2px;background:var(--purple3);border-radius:2px;transition:all .3s}
-.hamburger.open .hb-line:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
-.hamburger.open .hb-line:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open .hb-line:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
-
-/* MOBILE NAV */
-.mobile-nav{display:none;position:fixed;inset:0;z-index:199;background:rgba(7,4,15,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;transform:translateY(-10px);transition:all .35s cubic-bezier(.16,1,.3,1)}
-.mobile-nav.open{opacity:1;transform:none}
-.mobile-nav a{font-family:'Space Mono',monospace;font-size:1.1rem;letter-spacing:.18em;color:var(--muted);text-decoration:none;text-transform:uppercase;transition:color .2s}
-.mobile-nav a:hover{color:var(--purple3)}
-.mobile-nav .nav-hire{font-size:.9rem;padding:.8rem 2rem;margin-top:.5rem}
-
 #hero{min-height:100vh;display:grid;grid-template-columns:1fr 400px;align-items:center;padding:5rem 3rem 3rem;position:relative;z-index:3;gap:2rem}
 .hero-left{opacity:0;animation:fadeUp .9s 1.7s forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hero-eyebrow{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.18em;color:var(--purple3);text-transform:uppercase;margin-bottom:1.8rem;display:flex;align-items:center;gap:12px}
 .hero-eyebrow::before{content:'';width:26px;height:1px;background:linear-gradient(90deg,var(--purple2),transparent)}
 .hero-name{font-size:clamp(3.5rem,7.5vw,6.5rem);font-weight:800;letter-spacing:-.04em;line-height:.97;margin-bottom:.6rem;background:linear-gradient(125deg,#e8e4ff 0%,#c084fc 40%,#67e8f9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-tagline{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:500;color:var(--muted);margin-bottom:1.8rem;min-height:2em}
-.typewriter-text{color:var(--purple3);font-weight:700}
-.typewriter-cursor{display:inline-block;width:2px;height:1.1em;background:var(--cyan);vertical-align:text-bottom;animation:blink .75s step-end infinite;margin-left:2px}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.hero-tagline{font-size:clamp(1.1rem,2.2vw,1.5rem);font-weight:500;color:var(--muted);margin-bottom:1.8rem}
 .hero-desc{font-size:.95rem;color:var(--muted);line-height:1.88;max-width:490px;margin-bottom:1.8rem}
 .hero-desc b{color:var(--purple3);font-weight:600}
 .hero-pills{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:2rem}
@@ -80,7 +59,7 @@ nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:200;padd
 .pill:hover{border-color:var(--purple2);color:var(--purple3)}
 .pill.hot{border-color:rgba(6,182,212,.4);color:var(--cyan);background:rgba(6,182,212,.08)}
 .pill.sw{border-color:rgba(236,72,153,.4);color:var(--pink);background:rgba(236,72,153,.08)}
-.hero-btns{display:flex;gap:.9rem;margin-bottom:2.2rem;flex-wrap:wrap}
+.hero-btns{display:flex;gap:.9rem;margin-bottom:2.2rem}
 .btn-main{display:inline-block;padding:.82rem 2.1rem;background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .3s}
 .btn-main:hover{transform:translateY(-2px);box-shadow:0 16px 44px rgba(124,58,237,.48)}
 .btn-ghost{display:inline-block;padding:.82rem 2.1rem;border:1px solid rgba(168,85,247,.35);color:var(--muted);border-radius:10px;font-size:.9rem;text-decoration:none;background:rgba(124,58,237,.07);transition:all .3s}
@@ -97,17 +76,6 @@ nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:200;padd
 #robot-canvas{filter:drop-shadow(0 0 30px rgba(124,58,237,.5))}
 .robot-speech{position:absolute;top:8px;right:-20px;background:rgba(14,10,28,.92);border:1px solid var(--border);backdrop-filter:blur(14px);border-radius:14px 14px 14px 2px;padding:.7rem 1rem;font-size:.75rem;color:var(--text);max-width:160px;line-height:1.4;animation:speechBob 3s ease-in-out infinite alternate}
 @keyframes speechBob{from{transform:translateY(0)}to{transform:translateY(-6px)}}
-
-/* STATS SECTION */
-#stats{position:relative;z-index:3;padding:3rem 3rem;background:rgba(124,58,237,.04);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:1040px;margin:0 auto}
-.stat-card{text-align:center;padding:1.5rem 1rem;border-radius:16px;border:1px solid var(--border);background:var(--glass2);transition:all .35s;position:relative;overflow:hidden}
-.stat-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,var(--glow-color,rgba(124,58,237,.1)),transparent 70%);opacity:0;transition:opacity .35s}
-.stat-card:hover{border-color:rgba(168,85,247,.45);transform:translateY(-3px)}
-.stat-card:hover::before{opacity:1}
-.stat-num{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.04em;background:linear-gradient(135deg,var(--text),var(--purple3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.4rem;display:block}
-.stat-label{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;line-height:1.5}
-.stat-sub{font-size:.72rem;color:var(--dim);margin-top:.25rem}
 
 .marquee-wrap{position:relative;z-index:3;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 0;background:rgba(124,58,237,.05)}
 .marquee-inner{display:flex;animation:marquee 30s linear infinite}
@@ -188,9 +156,6 @@ section{position:relative;z-index:3;padding:5rem 3rem}
 .pcard:hover .pcard-blurb{max-height:80px;opacity:1}
 .pcard-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:.5rem}
 .ptag{font-family:'Space Mono',monospace;font-size:.5rem;padding:3px 8px;border-radius:4px;background:rgba(124,58,237,.16);border:1px solid rgba(168,85,247,.25);color:var(--purple3)}
-/* software card no-image style */
-.pcard.no-img .pcard-overlay{background:linear-gradient(135deg,rgba(124,58,237,.12),rgba(6,182,212,.06));position:relative;inset:auto;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:1.4rem}
-.pcard.no-img{background:rgba(14,8,32,.9)}
 
 /* PROJECT PAGE */
 .proj-page{display:none;position:fixed;inset:0;z-index:500;background:var(--bg);overflow-y:auto}
@@ -245,7 +210,6 @@ section{position:relative;z-index:3;padding:5rem 3rem}
 .tl-nm{font-size:.88rem;font-weight:700;margin-bottom:2px}
 .tl-de{font-size:.74rem;color:var(--muted);line-height:1.5}
 
-/* CONTACT */
 .contact-big{font-size:clamp(3rem,7.5vw,6.5rem);font-weight:800;letter-spacing:-.04em;line-height:.93;margin-bottom:2.5rem;background:linear-gradient(130deg,#e8e4ff 0%,var(--purple3) 50%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .clinks-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:1.4rem}
 .clink{display:flex;align-items:center;gap:9px;padding:.82rem 1.6rem;border-radius:10px;text-decoration:none;font-size:.84rem;font-weight:600;transition:all .3s}
@@ -253,71 +217,26 @@ section{position:relative;z-index:3;padding:5rem 3rem}
 .clink.pri:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(124,58,237,.38)}
 .clink.out{border:1px solid var(--border);color:var(--muted);background:var(--glass2)}
 .clink.out:hover{border-color:var(--purple2);color:var(--purple3);background:var(--glass)}
-.contact-note{font-family:'Space Mono',monospace;font-size:.64rem;color:var(--dim);letter-spacing:.05em;margin-bottom:2.5rem}
+.contact-note{font-family:'Space Mono',monospace;font-size:.64rem;color:var(--dim);letter-spacing:.05em}
 
-/* CONTACT FORM */
-.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
-.cform{display:flex;flex-direction:column;gap:1rem}
-.cform-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.cfield{display:flex;flex-direction:column;gap:.4rem}
-.cfield label{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;color:var(--purple3);text-transform:uppercase}
-.cfield input,.cfield textarea,.cfield select{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:.88rem;transition:border-color .2s,background .2s;outline:none;width:100%}
-.cfield input:focus,.cfield textarea:focus,.cfield select:focus{border-color:var(--purple2);background:rgba(124,58,237,.06)}
-.cfield textarea{resize:vertical;min-height:120px}
-.cfield select option{background:#0e0820;color:var(--text)}
-.cform-submit{display:inline-flex;align-items:center;gap:10px;padding:.88rem 2rem;background:linear-gradient(135deg,var(--purple),var(--purple2));color:#fff;border:none;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .3s;align-self:flex-start}
-.cform-submit:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(124,58,237,.4)}
-.cform-note{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--dim);letter-spacing:.05em;margin-top:.25rem}
-.contact-sidebar{display:flex;flex-direction:column;gap:1.2rem}
-.csidebar-card{padding:1.2rem 1.4rem;border-radius:14px;border:1px solid var(--border);background:var(--glass2);transition:all .3s}
-.csidebar-card:hover{border-color:rgba(168,85,247,.4);background:var(--glass)}
-.csidebar-label{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.12em;color:var(--purple3);text-transform:uppercase;margin-bottom:.3rem}
-.csidebar-val{font-size:.88rem;color:var(--text);font-weight:600}
-.csidebar-sub{font-size:.75rem;color:var(--muted);margin-top:.15rem}
-
-footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
 .ft,.fr{font-family:'Space Mono',monospace;font-size:.62rem;color:var(--dim);letter-spacing:.05em}
 .fr span{color:var(--purple3)}
-.footer-links{display:flex;gap:1.2rem}
-.footer-links a{font-family:'Space Mono',monospace;font-size:.58rem;color:var(--dim);text-decoration:none;transition:color .2s;letter-spacing:.05em}
-.footer-links a:hover{color:var(--purple3)}
-
-/* BACK TO TOP */
-#back-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;border-radius:12px;background:rgba(124,58,237,.18);border:1px solid var(--border);color:var(--purple3);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:300;transition:all .3s;opacity:0;transform:translateY(10px);pointer-events:none;backdrop-filter:blur(12px)}
-#back-top.show{opacity:1;transform:none;pointer-events:all}
-#back-top:hover{background:var(--purple);color:#fff;border-color:var(--purple);transform:translateY(-2px)}
-
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
-
-/* TOAST */
-#toast{position:fixed;bottom:5rem;right:2rem;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.35);color:#4ade80;font-family:'Space Mono',monospace;font-size:.72rem;padding:.7rem 1.2rem;border-radius:10px;z-index:400;opacity:0;transform:translateY(8px);transition:all .35s;backdrop-filter:blur(12px);pointer-events:none}
-#toast.show{opacity:1;transform:none}
-
 @media(max-width:960px){
   nav{left:1rem;right:1rem;width:auto;transform:none;top:8px}
-  section,#hero,footer,#stats{padding-left:1.5rem;padding-right:1.5rem}
+  section,#hero,footer{padding-left:1.5rem;padding-right:1.5rem}
   .nav-links{display:none}
-  .hamburger{display:flex}
-  #hero{grid-template-columns:1fr;padding-top:6rem}.hero-right{display:none}
+  #hero{grid-template-columns:1fr}.hero-right{display:none}
   .about-layout{grid-template-columns:1fr}
   .proj-bento{grid-template-columns:1fr;grid-auto-rows:220px}.pcard.wide{grid-column:span 1}
   .pp-inner{padding:5rem 1.5rem}
   .solar-outer{height:420px}
-  .stats-grid{grid-template-columns:repeat(2,1fr);gap:1rem}
-  .contact-layout{grid-template-columns:1fr}
-  .cform-row{grid-template-columns:1fr}
-  footer{flex-direction:column;align-items:flex-start;gap:.8rem}
-}
-@media(max-width:480px){
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .hero-btns{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
 <body>
-
-<div id="progress-bar"></div>
 
 <div id="loader">
   <svg class="l-mark" viewBox="0 0 64 64" fill="none">
@@ -338,16 +257,6 @@ footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--
 <div class="flashlight" id="fl"></div>
 <div class="skill-tooltip" id="stt"><div class="stt-name" id="stt-name"></div><div id="stt-items"></div></div>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobile-nav">
-  <a href="#experience" onclick="closeMobileNav()">Experience</a>
-  <a href="#skills" onclick="closeMobileNav()">Skills</a>
-  <a href="#projects" onclick="closeMobileNav()">Projects</a>
-  <a href="#about" onclick="closeMobileNav()">About</a>
-  <a href="#contact" onclick="closeMobileNav()">Contact</a>
-  <a href="mailto:jashandeepm2008@gmail.com?subject=Hey Jashan — Let's Work Together&body=Hi Jashan," class="nav-hire">Hire Me →</a>
-</div>
-
 <nav id="nav">
   <a class="nav-logo" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false">
     <svg id="cube-logo" width="42" height="42" viewBox="0 0 42 42" fill="none">
@@ -365,21 +274,14 @@ footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--
     <li><a href="#about">A b o u t</a></li>
     <li><a href="#contact">C o n t a c t</a></li>
   </ul>
-  <div style="display:flex;align-items:center;gap:.8rem">
-    <a href="mailto:jashandeepm2008@gmail.com?subject=Hey Jashan — Let's Work Together&body=Hi Jashan," class="nav-hire">Hire Me →</a>
-    <button class="hamburger" id="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
-      <span class="hb-line"></span>
-      <span class="hb-line"></span>
-      <span class="hb-line"></span>
-    </button>
-  </div>
+  <a href="mailto:jashandeepm2008@gmail.com?subject=Hey Jashan — Let's Work Together&body=Hi Jashan," class="nav-hire">Hire Me →</a>
 </nav>
 
 <section id="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Engineering Portfolio · 2026</div>
     <div class="hero-name">Jashan<br>Multani.</div>
-    <div class="hero-tagline"><span class="typewriter-text" id="tw-text"></span><span class="typewriter-cursor"></span></div>
+    <div class="hero-tagline">Builder. Analyst. Engineer.</div>
     <p class="hero-desc">Incoming <b>Computer Engineering @ UWaterloo</b>. I build things — AI tools, data pipelines, hardware robots. Currently interning in AI at <b>Ascendance Foundry</b> this summer. (Yes, before uni. Nbd.)</p>
     <div class="hero-pills">
       <span class="pill hot">AI / ML</span>
@@ -405,32 +307,6 @@ footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--
     </div>
   </div>
 </section>
-
-<!-- STATS -->
-<div id="stats">
-  <div class="stats-grid">
-    <div class="stat-card reveal" style="--glow-color:rgba(6,182,212,.15)">
-      <span class="stat-num" data-target="2" data-suffix="">2</span>
-      <div class="stat-label">Pre-uni internships</div>
-      <div class="stat-sub">Data & AI roles</div>
-    </div>
-    <div class="stat-card reveal" style="--glow-color:rgba(168,85,247,.15)">
-      <span class="stat-num" data-target="5" data-prefix="#" data-suffix="">5th</span>
-      <div class="stat-label">OntarioSkills rank</div>
-      <div class="stat-sub">Robotics · Provincial</div>
-    </div>
-    <div class="stat-card reveal" style="--glow-color:rgba(236,72,153,.15)">
-      <span class="stat-num" data-target="200" data-suffix="+">200+</span>
-      <div class="stat-label">DECA members led</div>
-      <div class="stat-sub">Chapter President</div>
-    </div>
-    <div class="stat-card reveal" style="--glow-color:rgba(34,197,94,.15)">
-      <span class="stat-num" data-target="11" data-suffix="+">11+</span>
-      <div class="stat-label">Projects built</div>
-      <div class="stat-sub">Hardware, software & more</div>
-    </div>
-  </div>
-</div>
 
 <div class="marquee-wrap">
   <div class="marquee-inner">
@@ -499,73 +375,57 @@ footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--
   <div class="proj-bento">
 
     <div class="pcard wide reveal" data-cat="robotics" onclick="openP('ontario')">
-      <div class="pcard-img" style="background-image:url('images/OntarioSkills.png')"></div>
+      <div class="pcard-img" style="background-image:url('OntarioSkills.png')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">Robotics · Video Available</div><div class="pcard-name">OntarioSkills Competition Robot</div><div class="pcard-blurb">Motorized claw robot — 5th place provincially. The claw had opinions about dropping things.</div><div class="pcard-tags"><span class="ptag">C++</span><span class="ptag">Motor Control</span><span class="ptag">Sensors</span></div></div>
     </div>
 
     <div class="pcard reveal" data-cat="arduino" onclick="openP('trash')">
-      <div class="pcard-img" style="background-image:url('images/SmartTrashBin.jpg')"></div>
+      <div class="pcard-img" style="background-image:url('SmartTrashBin.jpg')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">Arduino</div><div class="pcard-name">Smart Trash Can</div><div class="pcard-blurb">Opens itself when you walk up. Impressive until it opens for the dog.</div><div class="pcard-tags"><span class="ptag">Arduino</span><span class="ptag">Servo</span></div></div>
     </div>
 
     <div class="pcard reveal" data-cat="manufacturing" onclick="openP('metalpen')">
-      <div class="pcard-img" style="background-image:url('images/Pen1.jpg')"></div>
+      <div class="pcard-img" style="background-image:url('Pen1.jpg')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">Manufacturing</div><div class="pcard-name">Metal Pen</div><div class="pcard-blurb">Turned on a lathe. Writes better than my keyboard.</div><div class="pcard-tags"><span class="ptag">Metal Lathe</span><span class="ptag">Threading</span></div></div>
     </div>
 
     <div class="pcard reveal" data-cat="robotics" onclick="openP('linerobot')">
-      <div class="pcard-img" style="background-image:url('images/Line Following.png')"></div>
+      <div class="pcard-img" style="background-image:url('Line Following.png')"></div>
       <div class="pcard-status st-wip">In Progress</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">Robotics · Video Available</div><div class="pcard-name">Line Following Robot</div><div class="pcard-blurb">Follows a line. Avoids obstacles. Better at both than I am driving.</div><div class="pcard-tags"><span class="ptag">Arduino</span><span class="ptag">IR</span><span class="ptag">Ultrasonic</span></div></div>
     </div>
 
     <div class="pcard wide reveal" data-cat="manufacturing" onclick="openP('metaltag')">
-      <div class="pcard-img" style="background-image:url('images/Asteroid.jpg')"></div>
+      <div class="pcard-img" style="background-image:url('Asteroid.jpg')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">CNC / Manufacturing</div><div class="pcard-name">Metal Tag – Asteroid Impact Design</div><div class="pcard-blurb">CNC-machined aluminum with asteroid scene. Space fan → built it into a school project.</div><div class="pcard-tags"><span class="ptag">CNC Milling</span><span class="ptag">V-Carve</span><span class="ptag">Aluminum</span></div></div>
     </div>
 
     <div class="pcard reveal" data-cat="arduino" onclick="openP('robotarm')">
-      <div class="pcard-img" style="background-image:url('images/RobotArmImage1.png')"></div>
+      <div class="pcard-img" style="background-image:url('RobotArmImage1.png')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">Arduino · Video Available</div><div class="pcard-name">Arduino Robot Arm</div><div class="pcard-blurb">Built from popsicle sticks. Hot glue held this whole thing together. Respect it.</div><div class="pcard-tags"><span class="ptag">Servos</span><span class="ptag">Potentiometers</span></div></div>
     </div>
 
     <div class="pcard reveal" data-cat="manufacturing" onclick="openP('pokemon')">
-      <div class="pcard-img" style="background-image:url('images/PokemonTrophy1.jpg')"></div>
+      <div class="pcard-img" style="background-image:url('PokemonTrophy1.jpg')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">3D Printing</div><div class="pcard-name">Pokémon Trophy</div><div class="pcard-blurb">For DECA. Because winning deserves a good trophy.</div><div class="pcard-tags"><span class="ptag">SolidWorks</span><span class="ptag">FDM</span></div></div>
     </div>
 
     <div class="pcard reveal" data-cat="manufacturing" onclick="openP('airplane')">
-      <div class="pcard-img" style="background-image:url('images/Airplane1.png')"></div>
+      <div class="pcard-img" style="background-image:url('Airplane1.png')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">CNC / Manufacturing</div><div class="pcard-name">Airplane Chocolate Mould</div><div class="pcard-blurb">CNC-milled aluminum mould. Makes chocolate airplanes. 10/10 most delicious project.</div><div class="pcard-tags"><span class="ptag">CNC</span><span class="ptag">V-Carve</span></div></div>
     </div>
 
     <div class="pcard reveal" data-cat="arduino" onclick="openP('nightlight')">
-      <div class="pcard-img" style="background-image:url('images/Nightlight.jpg')"></div>
+      <div class="pcard-img" style="background-image:url('Nightlight.jpg')"></div>
       <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
       <div class="pcard-overlay"><div class="pcard-cat">Circuit Build</div><div class="pcard-name">Night Light</div><div class="pcard-blurb">Turns on in the dark. Turns off in light. Smarter than my alarm clock.</div><div class="pcard-tags"><span class="ptag">Soldering</span><span class="ptag">Perfboard</span></div></div>
-    </div>
-
-    <div class="pcard wide no-img reveal" data-cat="software" onclick="openP('dataanalysis')">
-      <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
-      <div class="pcard-overlay">
-        <div style="font-size:2.5rem;margin-bottom:.6rem">📊</div>
-        <div class="pcard-cat">Software / Data · Professional</div><div class="pcard-name">Inventory Analytics Pipeline</div><div class="pcard-blurb">Python data pipeline for $30K/day wholesale ops — trend detection, forecasting, supply chain recommendations.</div><div class="pcard-tags"><span class="ptag">Python</span><span class="ptag">Pandas</span><span class="ptag">Excel</span><span class="ptag">Data Viz</span></div>
-      </div>
-    </div>
-
-    <div class="pcard no-img reveal" data-cat="software" onclick="openP('portfolio')">
-      <div class="pcard-status st-done">Completed</div><div class="pcard-arrow">↗</div>
-      <div class="pcard-overlay">
-        <div style="font-size:2rem;margin-bottom:.6rem">🌐</div>
-        <div class="pcard-cat">Software / Web</div><div class="pcard-name">Portfolio Website</div><div class="pcard-blurb">You're looking at it. Vanilla JS, canvas animations, solar system, robot. No frameworks. Built from scratch.</div><div class="pcard-tags"><span class="ptag">JavaScript</span><span class="ptag">Canvas API</span><span class="ptag">CSS</span></div>
-      </div>
     </div>
 
   </div>
@@ -611,74 +471,12 @@ footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--
     <a href="https://tinyurl.com/JashanEng" target="_blank" rel="noopener" class="clink out">📄 Resume</a>
   </div>
   <div class="contact-note">jashandeepm2008@gmail.com · (647) 864-5827 · Brampton, ON</div>
-
-  <div class="contact-layout">
-    <form class="cform" id="contact-form" onsubmit="submitForm(event)">
-      <div class="cform-row">
-        <div class="cfield">
-          <label for="cf-name">Your Name</label>
-          <input type="text" id="cf-name" placeholder="Jane Smith" required autocomplete="name"/>
-        </div>
-        <div class="cfield">
-          <label for="cf-email">Email</label>
-          <input type="email" id="cf-email" placeholder="jane@company.com" required autocomplete="email"/>
-        </div>
-      </div>
-      <div class="cfield">
-        <label for="cf-subject">What's this about?</label>
-        <select id="cf-subject">
-          <option value="internship">Internship / Job Opportunity</option>
-          <option value="collab">Collaboration / Project</option>
-          <option value="advice">Advice / Mentorship</option>
-          <option value="other">Something Else</option>
-        </select>
-      </div>
-      <div class="cfield">
-        <label for="cf-msg">Message</label>
-        <textarea id="cf-msg" placeholder="Tell me what you have in mind..." required></textarea>
-      </div>
-      <button type="submit" class="cform-submit">Send Message →</button>
-      <div class="cform-note">Opens your email client · No tracking · Ever.</div>
-    </form>
-
-    <div class="contact-sidebar">
-      <div class="csidebar-card">
-        <div class="csidebar-label">Email</div>
-        <div class="csidebar-val">jashandeepm2008@gmail.com</div>
-        <div class="csidebar-sub">Best way to reach me</div>
-      </div>
-      <div class="csidebar-card">
-        <div class="csidebar-label">Location</div>
-        <div class="csidebar-val">Brampton, ON → Waterloo</div>
-        <div class="csidebar-sub">Open to remote opportunities</div>
-      </div>
-      <div class="csidebar-card">
-        <div class="csidebar-label">Status</div>
-        <div class="csidebar-val" style="color:var(--green)">● Open to Work</div>
-        <div class="csidebar-sub">Internships, co-ops, collaborations</div>
-      </div>
-      <div class="csidebar-card">
-        <div class="csidebar-label">Response Time</div>
-        <div class="csidebar-val">Usually within 24h</div>
-        <div class="csidebar-sub">Faster if the subject line is good</div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <footer>
   <div class="ft">© 2026 Jashan Multani</div>
-  <div class="footer-links">
-    <a href="https://www.linkedin.com/in/jashan-multani-57b7b4305" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Jashan-Mshadow" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://tinyurl.com/JashanEng" target="_blank" rel="noopener">Resume</a>
-    <a href="mailto:jashandeepm2008@gmail.com">Email</a>
-  </div>
   <div class="fr">UWaterloo CE <span>'31</span> · No robots were harmed making this site</div>
 </footer>
-
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
-<div id="toast">Message drafted — check your email client ✓</div>
 
 <div class="proj-page" id="proj-page">
   <div class="pp-inner">
@@ -690,56 +488,6 @@ footer{position:relative;z-index:3;padding:2rem 3rem;border-top:1px solid var(--
 <script>
 /* LOADER */
 setTimeout(()=>{const ld=document.getElementById('loader');ld.classList.add('out');setTimeout(()=>ld.style.display='none',650)},1750);
-
-/* SCROLL PROGRESS */
-window.addEventListener('scroll',()=>{
-  const h=document.documentElement;
-  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
-  document.getElementById('progress-bar').style.width=pct+'%';
-
-  /* NAV BG */
-  document.getElementById('nav').style.background=h.scrollTop>60?'rgba(14,8,32,.8)':'rgba(14,8,32,.55)';
-
-  /* BACK TO TOP */
-  const bt=document.getElementById('back-top');
-  bt.classList.toggle('show',h.scrollTop>400);
-
-  /* STATS COUNTER */
-  checkStats();
-});
-
-/* BACK TO TOP */
-let statsTriggered=false;
-function checkStats(){
-  if(statsTriggered)return;
-  const el=document.getElementById('stats');
-  if(!el)return;
-  const rect=el.getBoundingClientRect();
-  if(rect.top<window.innerHeight*.85){
-    statsTriggered=true;
-    animateCounters();
-  }
-}
-
-function animateCounters(){
-  document.querySelectorAll('.stat-num[data-target]').forEach(el=>{
-    const target=parseInt(el.getAttribute('data-target'));
-    const prefix=el.getAttribute('data-prefix')||'';
-    const suffix=el.getAttribute('data-suffix')||'';
-    let start=0;
-    const duration=1400;
-    const startTime=performance.now();
-    function tick(now){
-      const elapsed=now-startTime;
-      const progress=Math.min(elapsed/duration,1);
-      const ease=1-Math.pow(1-progress,3);
-      const val=Math.round(ease*target);
-      el.textContent=prefix+(val===target&&suffix?val+suffix:val+(progress>=1?suffix:''));
-      if(progress<1)requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  });
-}
 
 /* CANVAS BG */
 const cv=document.getElementById('bg-canvas'),cx=cv.getContext('2d');
@@ -758,7 +506,7 @@ function drawBG(){
 }
 drawBG();
 
-/* CUBE LOGO */
+/* CUBE LOGO wobble */
 let cubeT=0;const cubeSvg=document.getElementById('cube-logo');
 (function ca(){cubeT+=.018;cubeSvg.style.transform=`scale(${1+Math.sin(cubeT)*.04})`;requestAnimationFrame(ca)})();
 
@@ -766,48 +514,8 @@ let cubeT=0;const cubeSvg=document.getElementById('cube-logo');
 const fl=document.getElementById('fl');
 document.addEventListener('mousemove',e=>{fl.style.left=e.clientX+'px';fl.style.top=e.clientY+'px'});
 
-/* MOBILE NAV */
-let mobileNavOpen=false;
-function toggleMobileNav(){
-  mobileNavOpen=!mobileNavOpen;
-  const mn=document.getElementById('mobile-nav');
-  const hb=document.getElementById('hamburger');
-  if(mobileNavOpen){
-    mn.style.display='flex';
-    setTimeout(()=>mn.classList.add('open'),10);
-    hb.classList.add('open');
-    document.body.style.overflow='hidden';
-  }else{
-    mn.classList.remove('open');
-    hb.classList.remove('open');
-    document.body.style.overflow='';
-    setTimeout(()=>{if(!mobileNavOpen)mn.style.display='none'},350);
-  }
-}
-function closeMobileNav(){
-  if(mobileNavOpen)toggleMobileNav();
-}
-
-/* TYPEWRITER */
-(function(){
-  const phrases=['Builder.','Analyst.','Engineer.','Maker.','Problem Solver.'];
-  let pi=0,ci=0,deleting=false,pauseTimer=null;
-  const el=document.getElementById('tw-text');
-  function tick(){
-    const phrase=phrases[pi];
-    if(!deleting){
-      el.textContent=phrase.slice(0,ci+1);
-      ci++;
-      if(ci===phrase.length){deleting=true;pauseTimer=setTimeout(tick,1800);return;}
-    }else{
-      el.textContent=phrase.slice(0,ci-1);
-      ci--;
-      if(ci===0){deleting=false;pi=(pi+1)%phrases.length;setTimeout(tick,400);return;}
-    }
-    setTimeout(tick,deleting?45:90);
-  }
-  setTimeout(tick,2200);
-})();
+/* NAV scroll */
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.background=scrollY>60?'rgba(14,8,32,.8)':'rgba(14,8,32,.55)'});
 
 /* REVEAL */
 const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.08});
@@ -822,10 +530,10 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
   function draw(t){
     c.clearRect(0,0,300,340);
     const cx=150,cy=160,bob=Math.sin(t*.04)*4;
-    c.save();c.translate(cx,cy+148+bob);c.scale(1,.2);c.beginPath();c.ellipse(0,0,44,44,0,0,Math.PI*2);c.fillStyle='rgba(124,58,237,0.2)';c.fill();c.restore();
-    [-18,18].forEach((lx,i)=>{c.save();c.translate(cx+lx,cy+82+bob);c.rotate(Math.sin(t*.06+i*Math.PI)*.08);rr(c,-10,0,20,38,8,'#6d28d9');c.restore()});
-    [-18,18].forEach(lx=>{c.save();c.translate(cx+lx,cy+118+bob);c.beginPath();c.ellipse(0,0,13,6,0,0,Math.PI*2);c.fillStyle='#5b21b6';c.fill();c.restore()});
-    c.save();c.translate(cx,cy+bob);
+    /* shadow */c.save();c.translate(cx,cy+148+bob);c.scale(1,.2);c.beginPath();c.ellipse(0,0,44,44,0,0,Math.PI*2);c.fillStyle='rgba(124,58,237,0.2)';c.fill();c.restore();
+    /* legs */[-18,18].forEach((lx,i)=>{c.save();c.translate(cx+lx,cy+82+bob);c.rotate(Math.sin(t*.06+i*Math.PI)*.08);rr(c,-10,0,20,38,8,'#6d28d9');c.restore()});
+    /* feet */[-18,18].forEach(lx=>{c.save();c.translate(cx+lx,cy+118+bob);c.beginPath();c.ellipse(0,0,13,6,0,0,Math.PI*2);c.fillStyle='#5b21b6';c.fill();c.restore()});
+    /* body */c.save();c.translate(cx,cy+bob);
     rr(c,-32,-12,64,80,12,PURPLE2);
     const bg=c.createLinearGradient(-32,-12,32,68);bg.addColorStop(0,'rgba(192,132,252,0.22)');bg.addColorStop(1,'rgba(0,0,0,0)');rr(c,-32,-12,64,80,12,null);c.fillStyle=bg;c.fill();
     c.fillStyle='rgba(6,182,212,0.12)';c.strokeStyle='rgba(6,182,212,0.5)';c.lineWidth=1;rr(c,-20,10,40,28,6);c.fill();c.stroke();
@@ -835,11 +543,11 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
     const pulse=.5+Math.sin(t*.08)*.4;c.beginPath();c.arc(0,50,6,0,Math.PI*2);c.fillStyle=`rgba(6,182,212,${pulse})`;c.fill();c.beginPath();c.arc(0,50,3,0,Math.PI*2);c.fillStyle=CYAN;c.fill();
     [-28,28].forEach(bx=>{c.beginPath();c.arc(bx,20,4,0,Math.PI*2);c.fillStyle=LIGHT;c.fill()});
     c.restore();
-    c.save();c.translate(cx-32,cy+8+bob);c.rotate(.2);rr(c,-8,-6,16,40,7,PURPLE);c.restore();
-    const wa=Math.sin(t*.07)*.5+.3;c.save();c.translate(cx+32,cy+8+bob);c.rotate(-wa);rr(c,-8,-6,16,40,7,PURPLE);c.translate(0,36);c.beginPath();c.arc(0,0,10,0,Math.PI*2);c.fillStyle=LIGHT;c.fill();
+    /* left arm */c.save();c.translate(cx-32,cy+8+bob);c.rotate(.2);rr(c,-8,-6,16,40,7,PURPLE);c.restore();
+    /* wave arm */const wa=Math.sin(t*.07)*.5+.3;c.save();c.translate(cx+32,cy+8+bob);c.rotate(-wa);rr(c,-8,-6,16,40,7,PURPLE);c.translate(0,36);c.beginPath();c.arc(0,0,10,0,Math.PI*2);c.fillStyle=LIGHT;c.fill();
     for(let f=0;f<3;f++){const fa=-Math.PI/2+(f-1)*.4+Math.sin(t*.15+f)*.3;c.beginPath();c.moveTo(0,0);c.lineTo(Math.cos(fa)*12,Math.sin(fa)*12);c.strokeStyle=LIGHT;c.lineWidth=3;c.lineCap='round';c.stroke()}c.restore();
-    c.save();c.translate(cx,cy-12+bob);rr(c,-10,0,20,16,4,PURPLE2);c.restore();
-    c.save();c.translate(cx,cy-60+bob+Math.sin(t*.03)*2);
+    /* neck */c.save();c.translate(cx,cy-12+bob);rr(c,-10,0,20,16,4,PURPLE2);c.restore();
+    /* head */c.save();c.translate(cx,cy-60+bob+Math.sin(t*.03)*2);
     rr(c,-36,-34,72,60,14,PURPLE);const hg=c.createLinearGradient(-36,-34,36,26);hg.addColorStop(0,'rgba(192,132,252,0.2)');hg.addColorStop(1,'rgba(0,0,0,0)');rr(c,-36,-34,72,60,14,null);c.fillStyle=hg;c.fill();
     c.beginPath();c.moveTo(0,-34);c.lineTo(0,-54);c.strokeStyle=LIGHT;c.lineWidth=2.5;c.lineCap='round';c.stroke();
     const ap=.5+Math.sin(t*.12)*.5;c.beginPath();c.arc(0,-54,5,0,Math.PI*2);c.fillStyle=`rgba(6,182,212,${ap})`;c.fill();c.beginPath();c.arc(0,-54,3,0,Math.PI*2);c.fillStyle=CYAN;c.fill();
@@ -897,13 +605,13 @@ let solT=0;
 /* FILTER */
 function fp(cat,btn){document.querySelectorAll('.pf').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.pcard[data-cat]').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'})}
 
-/* PROJECT DATA */
+/* PROJECT DATA — all using local images */
 const PD={
   ontario:{
     title:'OntarioSkills Competition Robot',cat:'Robotics · 5th Place Provincially',
     tags:['Mechanical Design','C++','Circuits','Motor Control','Team Build'],
     video:'https://drive.google.com/file/d/1fR75vi9M0RzNh1PL7xDKsy-mYcyI_R0Q/view',
-    imgs:['images/OntarioSkills.png'],
+    imgs:['OntarioSkills.png'],
     desc:`A warehouse worker made of metal, wires, and code. Our team built a robot with a motorized claw to lift, carry, and drop boxes while navigating a competition course.\n\nThe claw uses precise motor control to grab and hold objects securely while the drivetrain allows smooth multi-directional movement. Sensors and programming worked together so the robot could align with targets, pick up boxes, and transport them without tipping.`,
     reflect:`Early on the claw kept dropping boxes mid-lift — basically a robot with commitment issues. Adjusting grip strength and timing fixed it. Lifting heavy loads also caused the robot to tilt forward. Reinforcing the chassis solved that. Code alone won't save you if the build can't physically handle it.`
   },
@@ -911,7 +619,7 @@ const PD={
     title:'Line Following + Obstacle Avoidance Robot',cat:'Arduino Build · In Progress',
     tags:['Arduino Uno','IR Sensor','Ultrasonic','C++','Autonomous'],
     video:'https://drive.google.com/file/d/1SqxoAsFTyD1_NzL5B5D8khfqfOgFGG6l/view',
-    imgs:['images/Line Following.png'],
+    imgs:['Line Following.png'],
     desc:`Two IR sensors detect a black line on the floor, continuously adjusting direction. An ultrasonic sensor on the front handles obstacles — detect, stop, back up, reroute, find the line, continue. Think GPS but for a robot with trust issues.`,
     reflect:`Tuning smooth line-following without drifting was the hardest part — small timing changes had surprisingly big effects. Making obstacle avoidance reliable took a lot of iterations. Turns out robots are picky.`
   },
@@ -919,7 +627,7 @@ const PD={
     title:'Smart Trash Can',cat:'Arduino Build · Completed',
     tags:['Arduino Uno','Ultrasonic Sensor','Servo Motor','Mechanical Design'],
     video:null,
-    imgs:['images/SmartTrashBin.jpg'],
+    imgs:['SmartTrashBin.jpg'],
     desc:`A hands-free Arduino bin that opens when you approach. Ultrasonic sensor detects distance, servo lifts the lid. Fine-tuning detection range was key — too close = frantic waving, too far = opens every time the dog walks by.`,
     reflect:`First power setup didn't give the servo enough torque — lid barely twitched, very sad. A plain popsicle stick arm bent under load, so I reinforced it. Getting detection range right took several iterations. End result: smooth, reliable, hygienic. Mostly.`
   },
@@ -927,7 +635,7 @@ const PD={
     title:'Arduino Robot Arm',cat:'Arduino Build · Completed',
     tags:['Arduino Uno','Servo Motors','Potentiometers','Mechanical Design','Soldering'],
     video:'https://drive.google.com/file/d/1vpxHrhNGfxlD__1OypEyjKFTa7Uw-V9u/view',
-    imgs:['images/RobotArmImage1.png','images/RobotArmImage2.png'],
+    imgs:['RobotArmImage1.png','RobotArmImage2.png'],
     desc:`Three servo motors, three potentiometers, popsicle sticks — leaves the workshop as a robotic arm. Each pot controls one axis: up/down, left/right, wrist rotation. Built entirely from craft supplies. Do not underestimate hot glue.`,
     reflect:`The up-down servo kept launching past its range — reprogrammed from 0–180° to 90–180°. Had a wiring mistake that almost turned batteries into a hand warmer. Caught just in time. Hot glue was the unsung hero of this entire project.`
   },
@@ -935,7 +643,7 @@ const PD={
     title:'Metal Tag – Asteroid Impact Design',cat:'CNC / Manufacturing · Completed',
     tags:['CNC Milling','V-Carve','Vertical Cutoff Saw','Filing','Aluminum'],
     video:null,
-    imgs:['images/Asteroid.jpg','images/Asteroid2.jpg'],
+    imgs:['Asteroid.jpg','Asteroid2.jpg'],
     desc:`First real CNC project — 3"×2" aluminum chunk turned into a custom asteroid impact scene. Because space. Used V-Carve to map the design and planned for three CNC bits to create layered depth that actually looks like debris on impact.`,
     reflect:`Adjusting to the CNC mill felt like learning to drive a spaceship. With no instructor. Edges were a little rough. Lesson: finish earlier, protect the piece, and polish before showing it off. Also: save the file more than once.`
   },
@@ -943,7 +651,7 @@ const PD={
     title:'Metal Pen (Metal Lathe)',cat:'Manufacturing · Completed',
     tags:['Metal Lathe','Knurling','Threading','Orthographic Drawing','Aluminum'],
     video:null,
-    imgs:['images/Pen1.jpg','images/Pen2.jpg','images/Pen3.jpg','images/Pen4.jpg'],
+    imgs:['Pen1.jpg','Pen2.jpg','Pen3.jpg','Pen4.jpg'],
     desc:`Not just a pen — my pen. Custom aluminum turned on a metal lathe, drilled for the ink cartridge, knurled for grip, threaded for a precise screw fit. Personalised with my colours and name. It writes. It's beautiful. I use it to sign things I could just type.`,
     reflect:`Precise alignment was the hardest part — threading especially, where tiny errors ruin the fit. Knurling required consistent pressure. Every stage depended on the accuracy of the last. This project made me understand why machinists are kind of a big deal.`
   },
@@ -951,7 +659,7 @@ const PD={
     title:'3D Printed Pokémon Trophy',cat:'3D Printing · Completed',
     tags:['Tinkercad','SolidWorks','3D Printing','FDM'],
     video:null,
-    imgs:['images/PokemonTrophy1.jpg','images/PokemonTrophy2.jpg'],
+    imgs:['PokemonTrophy1.jpg','PokemonTrophy2.jpg'],
     desc:`Custom Pokémon trophy modelled in Tinkercad, refined in SolidWorks. Tuned infill, layer height, and orientation to balance detail with durability. Made for the DECA chapter. Because if you're winning provincials, the trophy should match the energy.`,
     reflect:`Finding the balance between detail and strength was the main challenge — too much detail and it snapped, too much infill and it looked like a brick. Experimenting with settings taught me more about FDM than any YouTube tutorial.`
   },
@@ -959,7 +667,7 @@ const PD={
     title:'Airplane Chocolate Mould',cat:'CNC / Manufacturing · Completed',
     tags:['CNC Milling','V-Carve','Cutoff Saw','Aluminum'],
     video:null,
-    imgs:['images/Airplane1.png','images/Airplane2.png','images/Airplane3.png'],
+    imgs:['Airplane1.png','Airplane2.png','Airplane3.png'],
     desc:`2×2 inch aluminum mould with a 3D airplane across two elevations. CNC-machined for depth and detail, used to form a plastic chocolate mould. The final product is a chocolate airplane that flies directly into your mouth.`,
     reflect:`Over-milled on the first attempt — full restart. Transitions between elevations caused rough edges needing careful filing. Every step reinforced: know your machine's limits before you commit to a cut.`
   },
@@ -967,25 +675,9 @@ const PD={
     title:'Night Light',cat:'Circuit Build · Completed',
     tags:['Photoresistor','LED Circuit','Soldering','Perfboard'],
     video:null,
-    imgs:['images/Nightlight.jpg','images/Nightlight2.jpg'],
+    imgs:['Nightlight.jpg','Nightlight2.jpg'],
     desc:`Nightlight circuit that auto-activates LEDs when ambient light drops. Photoresistor + resistor divider + transistor logic, all soldered onto perfboard. No breadboard spaghetti. Clean, compact, and honestly way more satisfying to look at than it has any right to be.`,
     reflect:`Getting all components flush with the board took way more patience than I expected. Learned the hard way that too much heat kills an LED instantly — it just dies, no warning, no goodbye. Once I found my soldering rhythm: clean and professional.`
-  },
-  dataanalysis:{
-    title:'Inventory Analytics Pipeline',cat:'Software / Data · Professional',
-    tags:['Python','Pandas','Excel','Data Visualization','Supply Chain'],
-    video:null,
-    imgs:[],
-    desc:`Data pipeline built during internship at Twin Brothers Wholesale — processing ~$30K/day in purchasing data. Automated trend identification, stock imbalance detection, and demand forecasting across product lines.\n\nDelivered weekly dashboards and data-driven recommendations that directly influenced supply chain decisions across the Michigan wholesale operation.`,
-    reflect:`Working with real business data at scale is completely different from classroom projects. Messy data, unclear requirements, real stakes. Learning to ask the right questions before writing a single line of code was the biggest takeaway from this experience.`
-  },
-  portfolio:{
-    title:'Portfolio Website',cat:'Software / Web · 2026',
-    tags:['Vanilla JavaScript','Canvas API','CSS Animations','Responsive Design','HTML5'],
-    video:null,
-    imgs:[],
-    desc:`You're looking at it. Built entirely from scratch — no frameworks, no templates, no shortcuts. Features a custom particle network on canvas, aurora background system, animated robot mascot, solar system skill visualization, and a full project showcase system.\n\nEvery animation, every interaction, and every layout decision is hand-crafted in HTML, CSS, and vanilla JavaScript.`,
-    reflect:`The hardest part was the solar system orbit with correct elliptical projection and depth-based opacity — making planets realistically appear to orbit behind the sun. Also: the robot. The robot took way longer than it should have. Zero regrets.`
   }
 };
 
@@ -1042,28 +734,12 @@ function openP(id){
   pg.classList.add('open');pg.scrollTop=0;document.body.style.overflow='hidden';
 }
 function closeP(){document.getElementById('proj-page').classList.remove('open');document.body.style.overflow=''}
-
-/* CONTACT FORM */
-function submitForm(e){
-  e.preventDefault();
-  const name=document.getElementById('cf-name').value;
-  const email=document.getElementById('cf-email').value;
-  const subject=document.getElementById('cf-subject').value;
-  const msg=document.getElementById('cf-msg').value;
-  const subjectMap={internship:'Internship / Job Opportunity',collab:'Collaboration / Project',advice:'Advice / Mentorship',other:'Message for Jashan'};
-  const sub=encodeURIComponent(`Hey Jashan — ${subjectMap[subject]||'Message'}`);
-  const body=encodeURIComponent(`Hi Jashan,\n\n${msg}\n\n— ${name}\n${email}`);
-  window.location.href=`mailto:jashandeepm2008@gmail.com?subject=${sub}&body=${body}`;
-  const toast=document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(()=>toast.classList.remove('show'),3500);
-}
-
 document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){closeP();closeMobileNav();}
+  if(e.key==='Escape') closeP();
   if(e.key==='ArrowLeft') slideDir(-1);
   if(e.key==='ArrowRight') slideDir(1);
 });
 </script>
 </body>
 </html>
+
