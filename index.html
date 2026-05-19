@@ -6,7 +6,7 @@
 <title>Jashan Multani — CE @ UWaterloo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -18,21 +18,28 @@
   --gold:#ffd700;--purple:#a855f7;--pink:#f472b6;--amber:#f59e0b;
   --ease:cubic-bezier(.16,1,.3,1);
 }
+body.pro{
+  --bg:#f4f4f8;--bg2:#ececf0;--bg3:#ffffff;
+  --glass:rgba(0,0,0,.03);--glass2:rgba(0,0,0,.06);
+  --b:rgba(0,0,0,.07);--b2:rgba(0,0,0,.13);
+  --text:#111128;--sub:#5a5a78;--dim:#c0c0d8;
+  --c:#0060c0;
+}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.5}
 a{text-decoration:none;color:inherit}
 button{font-family:'Outfit',sans-serif;cursor:pointer;border:none;background:none}
 input,textarea{font-family:'Outfit',sans-serif}
 
-/* PROGRESS */
+/* ── PROGRESS ──────────────────────────────── */
 #prog{position:fixed;top:0;left:0;height:2px;width:0%;z-index:9999;background:linear-gradient(90deg,var(--c),var(--purple),var(--pink));transition:width .08s linear}
 body.pro #prog{background:var(--c)}
 
-/* STARS */
+/* ── STARS ─────────────────────────────────── */
 #star-cv{position:fixed;inset:0;z-index:0;pointer-events:none;transition:opacity .6s}
 body.pro #star-cv{opacity:0}
 
-/* LOADER */
+/* ── LOADER ────────────────────────────────── */
 #loader{position:fixed;inset:0;z-index:9998;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .5s}
 #loader.out{opacity:0;pointer-events:none}
 .ld-hex{width:54px;height:54px;animation:spin 2s linear infinite}
@@ -42,9 +49,9 @@ body.pro #star-cv{opacity:0}
 @keyframes ldf{to{width:100%}}
 .ld-txt{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--sub);text-transform:uppercase}
 
-/* MODE BAR */
+/* ── MODE BAR ──────────────────────────────── */
 #mbar{position:fixed;top:0;left:0;right:0;z-index:600;height:36px;background:rgba(7,10,18,.88);border-bottom:1px solid var(--b);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:center;gap:14px;transition:background .4s}
-body.pro #mbar{background:rgba(248,248,252,.92);border-color:rgba(0,0,0,.08)}
+body.pro #mbar{background:rgba(244,244,248,.92);border-color:rgba(0,0,0,.1)}
 .mbl{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--sub);text-transform:uppercase}
 .mbs{display:flex;align-items:center;background:var(--glass2);border:1px solid var(--b2);border-radius:100px;padding:3px;cursor:pointer;user-select:none;transition:border-color .2s}
 .mbs:hover{border-color:var(--c)}
@@ -54,143 +61,120 @@ body.pro #mbar{background:rgba(248,248,252,.92);border-color:rgba(0,0,0,.08)}
 body.pro .mbp-fun{background:transparent;color:var(--sub)}
 body.pro .mbp-pro{background:var(--c);color:#fff}
 
-/* NAV */
-nav{position:fixed;top:36px;left:50%;transform:translateX(-50%);z-index:500;width:calc(100% - 36px);max-width:1060px;background:rgba(7,10,18,.82);border:1px solid var(--b2);backdrop-filter:blur(28px);border-radius:0 0 16px 16px;padding:11px 22px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 8px 32px rgba(0,0,0,.4);opacity:0;animation:navIn .7s 1.8s var(--ease) forwards;transition:background .4s,border-color .4s,box-shadow .4s}
-body.pro nav{background:rgba(255,255,255,.9);border-color:rgba(0,0,0,.06);box-shadow:0 2px 24px rgba(0,0,0,.07)}
+/* ── NAV ───────────────────────────────────── */
+nav{position:fixed;top:36px;left:50%;transform:translateX(-50%);z-index:500;width:calc(100% - 36px);max-width:1060px;background:rgba(7,10,18,.82);border:1px solid var(--b2);backdrop-filter:blur(28px);border-radius:0 0 16px 16px;padding:11px 22px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 8px 32px rgba(0,0,0,.4);opacity:0;animation:navIn .7s 1.8s var(--ease) forwards;transition:background .4s}
+body.pro nav{background:rgba(244,244,248,.9);border-color:rgba(0,0,0,.12)}
 @keyframes navIn{from{opacity:0;transform:translate(-50%,-10px)}to{opacity:1;transform:translate(-50%,0)}}
 .nbrand{display:flex;align-items:center;gap:10px;cursor:pointer}
 .nlogo{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--c),var(--purple));display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
 .nbrand:hover .nlogo{transform:rotate(8deg) scale(1.08)}
 .nlogo svg{width:15px;height:15px}
 .nname{font-size:13px;font-weight:700;letter-spacing:-.2px}
-body.pro .nname{color:#1d1d1f}
 .nlinks{display:flex;gap:2px;list-style:none}
 .nlinks a{font-size:12px;font-weight:500;color:var(--sub);padding:6px 12px;border-radius:8px;transition:color .15s,background .15s}
 .nlinks a:hover{color:var(--text);background:var(--glass2)}
-body.pro .nlinks a:hover{color:#1d1d1f;background:rgba(0,0,0,.04)}
 .nr{display:flex;align-items:center;gap:10px}
 .nhire{font-size:12px;font-weight:700;padding:7px 16px;border-radius:9px;background:var(--c);color:#000;transition:all .2s}
-body.pro .nhire{background:#0071e3;color:#fff}
 .nhire:hover{opacity:.88;transform:translateY(-1px)}
 .nburg{display:none;flex-direction:column;gap:5px;padding:5px;cursor:pointer}
 .nburg span{width:19px;height:1.5px;background:var(--text);border-radius:2px;display:block;transition:all .3s var(--ease)}
-body.pro .nburg span{background:#1d1d1f}
 .nburg.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .nburg.open span:nth-child(2){opacity:0}
 .nburg.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 .mobmenu{position:fixed;inset:0;z-index:490;background:rgba(7,10,18,.97);backdrop-filter:blur(20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;opacity:0;pointer-events:none;transition:opacity .3s}
-body.pro .mobmenu{background:rgba(248,248,252,.97)}
 .mobmenu.open{opacity:1;pointer-events:all}
 .mobmenu a{font-size:24px;font-weight:700;color:var(--sub);transition:color .2s}
 .mobmenu a:hover{color:var(--c)}
-body.pro .mobmenu a:hover{color:#0071e3}
 
-/* HERO */
+/* ── HERO ──────────────────────────────────── */
 #hero{min-height:100dvh;display:grid;grid-template-columns:1fr auto;gap:60px;align-items:center;padding:90px 60px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:3}
 .hleft{opacity:0;animation:fu .9s 1.6s var(--ease) forwards}
 @keyframes fu{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .hchip{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,255,.08);border:1px solid rgba(0,200,255,.2);border-radius:100px;padding:5px 14px 5px 8px;margin-bottom:20px}
-body.pro .hchip{background:rgba(0,113,227,.06);border-color:rgba(0,113,227,.18)}
 .hdot{width:6px;height:6px;border-radius:50%;background:var(--g);box-shadow:0 0 0 3px rgba(61,220,132,.1);animation:gpulse 2s infinite}
 @keyframes gpulse{0%,100%{box-shadow:0 0 0 3px rgba(61,220,132,.1)}55%{box-shadow:0 0 0 7px rgba(61,220,132,.05)}}
 .hchip-t{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;color:var(--c);letter-spacing:.06em}
-body.pro .hchip-t{color:#0071e3}
 h1.hname{font-size:clamp(48px,7vw,88px);font-weight:800;letter-spacing:-3.5px;line-height:.93;margin-bottom:14px}
 h1.hname span{color:var(--c);display:block}
-body.pro h1.hname{color:#1d1d1f;letter-spacing:-4px}
-body.pro h1.hname span{background:linear-gradient(135deg,#0071e3 0%,#34aadc 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hrole{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--sub);margin-bottom:18px;letter-spacing:.06em}
-body.pro .hrole{font-family:ui-monospace,'SF Mono','Fira Code','JetBrains Mono',monospace;color:#6e6e73}
 .hdesc{font-size:15px;color:var(--sub);line-height:1.85;max-width:460px;margin-bottom:26px}
 .hdesc strong{color:var(--text);font-weight:600}
-body.pro .hdesc{color:#6e6e73}
-body.pro .hdesc strong{color:#1d1d1f}
 .htags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:26px}
 .ht{font-family:'JetBrains Mono',monospace;font-size:9px;padding:4px 11px;border-radius:100px;border:1px solid var(--b2);color:var(--sub);letter-spacing:.06em;transition:all .2s;cursor:default}
 .ht:hover,.ht.hi{border-color:var(--c);color:var(--c);background:rgba(0,200,255,.06)}
-body.pro .ht{border-color:rgba(0,0,0,.1);color:#6e6e73}
-body.pro .ht:hover,body.pro .ht.hi{border-color:#0071e3;color:#0071e3;background:rgba(0,113,227,.05)}
 .hbtns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
 .ba{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;background:var(--c);color:#000;border-radius:9px;font-size:13px;font-weight:700;transition:all .2s}
-body.pro .ba{background:#0071e3;color:#fff;border-radius:12px}
 .ba:hover{opacity:.88;transform:translateY(-2px)}.ba:active{transform:scale(.98)}
 .bb{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border:1px solid var(--b2);color:var(--sub);border-radius:9px;font-size:13px;font-weight:600;transition:all .2s;background:var(--glass)}
-body.pro .bb{border-color:rgba(0,0,0,.1);color:#6e6e73;background:rgba(0,0,0,.02);border-radius:12px}
 .bb:hover{border-color:var(--c);color:var(--c);background:rgba(0,200,255,.05)}.bb:active{transform:scale(.98)}
-body.pro .bb:hover{border-color:#0071e3;color:#0071e3;background:rgba(0,113,227,.04)}
 .hmeta{display:flex;gap:20px;flex-wrap:wrap}
 .hm{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--sub)}
-body.pro .hm{font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace;color:#6e6e73}
 .hmd{width:5px;height:5px;border-radius:50%}
 
-/* GAMEBOY */
+/* ── GAMEBOY ────────────────────────────────── */
 .hright{opacity:0;animation:fu .9s 1.8s var(--ease) forwards;flex-shrink:0}
 .gameboy-shell{width:260px;background:linear-gradient(160deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);border-radius:24px 24px 50px 50px;padding:16px 16px 24px;box-shadow:0 0 0 2px rgba(255,255,255,.08),0 20px 60px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.1);position:relative}
+body.pro .gameboy-shell{background:linear-gradient(160deg,#c0c0d0,#a8a8c0,#9090a8)}
 .gb-screen-bezel{background:#0a0a18;border-radius:12px 12px 8px 8px;padding:8px;margin-bottom:14px;box-shadow:inset 0 2px 8px rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.06)}
+body.pro .gb-screen-bezel{background:#1a1a1a;border-color:rgba(0,0,0,.3)}
 .gb-screen-label{font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(0,200,255,.5);letter-spacing:.2em;text-align:center;text-transform:uppercase;margin-bottom:6px}
+body.pro .gb-screen-label{color:rgba(0,96,192,.4)}
 .gb-screen{width:100%;height:180px;border-radius:6px;overflow:hidden;background:#050510;position:relative}
+body.pro .gb-screen{background:#f0f0f0}
 .gb-notch{display:flex;align-items:center;justify-content:space-between;margin:8px 0 14px;padding:0 4px}
 .gb-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,200,255,.3);box-shadow:0 0 8px var(--c)}
+body.pro .gb-dot{background:rgba(0,96,192,.3);box-shadow:none}
 .gb-dot-label{font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(255,255,255,.3);letter-spacing:.1em}
+body.pro .gb-dot-label{color:rgba(0,0,0,.3)}
+/* DPAD */
 .gb-controls{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding:0 4px}
-.dpad{position:relative;width:60px;height:60px;cursor:pointer}
-.dpad:hover .dp-h,.dpad:hover .dp-v{background:rgba(255,255,255,.14)}
-.dp-h,.dp-v{position:absolute;background:rgba(255,255,255,.08);border-radius:3px;transition:background .15s}
+.dpad{position:relative;width:60px;height:60px}
+.dp-h,.dp-v{position:absolute;background:rgba(255,255,255,.08);border-radius:3px}
+body.pro .dp-h,.dp-v,.dp-h{background:rgba(0,0,0,.15)}
 .dp-h{width:100%;height:33%;top:33%;left:0}
 .dp-v{height:100%;width:33%;top:0;left:33%}
 .dp-center{position:absolute;top:33%;left:33%;width:34%;height:34%;background:rgba(255,255,255,.12);border-radius:2px}
-/* D-pad direction arrows */
-.dp-arrow{position:absolute;font-size:7px;color:rgba(255,255,255,.35);pointer-events:none;line-height:1}
-.dp-arrow.up{top:2px;left:50%;transform:translateX(-50%)}
-.dp-arrow.down{bottom:2px;left:50%;transform:translateX(-50%)}
-.dp-arrow.left{left:2px;top:50%;transform:translateY(-50%)}
-.dp-arrow.right{right:2px;top:50%;transform:translateY(-50%)}
+/* AB buttons */
 .ab-btns{display:flex;gap:8px;align-items:center}
 .ab-btn{width:22px;height:22px;border-radius:50%;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;cursor:pointer;border:none;transition:all .15s;display:flex;align-items:center;justify-content:center;color:#000;user-select:none}
-.ab-btn:active{transform:scale(.88)!important}
+.ab-btn:active{transform:scale(.92)}
 .ab-btn.a-btn{background:#e53935;box-shadow:0 3px 0 #b71c1c}
-.ab-btn.a-btn:hover{box-shadow:0 4px 12px rgba(229,57,53,.5)}
 .ab-btn.b-btn{background:#1e88e5;box-shadow:0 3px 0 #1565c0}
-.ab-btn.b-btn:hover{box-shadow:0 4px 12px rgba(30,136,229,.5)}
+/* small buttons */
 .gb-smbtns{display:flex;justify-content:center;gap:24px;margin-top:4px}
 .gb-smbtn{width:28px;height:8px;border-radius:4px;background:rgba(255,255,255,.1);border:none;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;transition:background .15s}
-.gb-smbtn:hover{background:rgba(255,255,255,.22)}
-.gb-smbtn:active{background:rgba(255,255,255,.3)}
-.gb-speech{position:absolute;top:-52px;right:-10px;background:rgba(10,12,28,.95);border:1px solid var(--b2);border-radius:10px 10px 2px 10px;padding:7px 10px;font-size:10px;color:var(--text);max-width:140px;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.5);animation:sbob 3s ease-in-out infinite alternate;z-index:5}
+body.pro .gb-smbtn{background:rgba(0,0,0,.15);color:rgba(0,0,0,.4)}
+.gb-smbtn:hover{background:rgba(255,255,255,.2)}
+body.pro .gb-smbtn:hover{background:rgba(0,0,0,.25)}
+/* speech bubble above gameboy */
+.gb-speech{position:absolute;top:-52px;right:-10px;background:rgba(10,12,28,.95);border:1px solid var(--b2);border-radius:10px 10px 2px 10px;padding:7px 10px;font-size:10px;color:var(--text);max-width:130px;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.5);animation:sbob 3s ease-in-out infinite alternate;z-index:5}
+body.pro .gb-speech{background:rgba(248,248,252,.96);color:#111}
 @keyframes sbob{from{transform:translateY(0)}to{transform:translateY(-5px)}}
-/* GB mode indicator */
-.gb-mode-chip{position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(0,200,255,.5);letter-spacing:.1em;white-space:nowrap;text-transform:uppercase}
 
-/* MARQUEE */
+/* ── MARQUEE ───────────────────────────────── */
 .mqwrap{border-top:1px solid var(--b);border-bottom:1px solid var(--b);padding:12px 0;overflow:hidden;position:relative;z-index:3;background:rgba(0,200,255,.01)}
-body.pro .mqwrap{background:rgba(0,113,227,.01);border-color:rgba(0,0,0,.06)}
-.mqtrack{display:flex;animation:mq 36s linear infinite}
+.mqtrack{display:flex;animation:mq 32s linear infinite}
 .mqtrack:hover{animation-play-state:paused}
 .mi{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--dim);padding:0 20px;white-space:nowrap;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px}
-body.pro .mi{color:#c7c7cc}
 .mi::after{content:'★';color:var(--gold);font-size:.35rem;opacity:.6}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* SECTIONS */
+/* ── SECTIONS ──────────────────────────────── */
 .wrap{padding:80px 60px;max-width:1200px;margin:0 auto;position:relative;z-index:3}
 .eye{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--c);text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .eye::before{content:'//';color:var(--purple);opacity:.5;font-size:9px}
-body.pro .eye{font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace;color:#0071e3}
-body.pro .eye::before{color:#0071e3;opacity:.3}
+body.pro .eye::before{color:var(--c);opacity:.3}
 .sh{font-size:clamp(28px,4.5vw,50px);font-weight:800;letter-spacing:-2.5px;line-height:1;margin-bottom:8px}
-body.pro .sh{letter-spacing:-3px;color:#1d1d1f}
 .ssub{font-size:14px;color:var(--sub);line-height:1.85;max-width:440px}
-body.pro .ssub{color:#6e6e73}
 .shead{margin-bottom:48px}
 .rev{opacity:0;transform:translateY(20px);transition:opacity .72s var(--ease),transform .72s var(--ease)}
 .rev.in{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-.gc{background:var(--glass);border:1px solid var(--b2);border-radius:18px;backdrop-filter:blur(14px);transition:border-color .3s,transform .3s,box-shadow .3s}
+.gc{background:var(--glass);border:1px solid var(--b2);border-radius:18px;backdrop-filter:blur(14px);transition:border-color .3s,transform .3s}
 .gc:hover{border-color:rgba(0,200,255,.3)}
-body.pro .gc{background:#ffffff;border:none;box-shadow:0 1px 4px rgba(0,0,0,.06),0 4px 20px rgba(0,0,0,.07);backdrop-filter:none}
-body.pro .gc:hover{box-shadow:0 4px 12px rgba(0,0,0,.08),0 12px 40px rgba(0,0,0,.1);border:none}
+body.pro .gc:hover{border-color:rgba(0,96,192,.25)}
 
-/* SABER DIVIDERS */
+/* ── SABER DIVIDERS ────────────────────────── */
 .sab-wrap{position:relative;z-index:3;padding:18px 60px;transition:background .4s,opacity .4s}
 body.pro .sab-wrap{opacity:0;height:0;padding:0;overflow:hidden}
 .sab{display:flex;align-items:center}
@@ -201,48 +185,70 @@ body.pro .sab-wrap{opacity:0;height:0;padding:0;overflow:hidden}
 .sabtag{position:absolute;top:-18px;left:54px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;pointer-events:none;white-space:nowrap}
 @keyframes sf1{0%,100%{opacity:.88}50%{opacity:1}}
 
-/* EXPERIENCE */
+/* ── EXPERIENCE ─────────────────────────────── */
 #experience{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);transition:background .4s}
-body.pro #experience{background:linear-gradient(180deg,#f5f5f7 0%,#ffffff 100%)}
 .explist{display:flex;flex-direction:column;gap:10px}
 .expcard{padding:24px 26px;position:relative;overflow:hidden;cursor:default}
 .expcard::before{content:'';position:absolute;left:0;top:0;width:2px;height:100%;background:linear-gradient(180deg,var(--c),var(--purple));transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
-body.pro .expcard::before{background:linear-gradient(180deg,#0071e3,#34aadc)}
 .expcard:hover::before{transform:scaleY(1)}
 .expcard:hover{transform:translateX(4px)}
 .eg{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start}
 .er{font-size:15px;font-weight:700;letter-spacing:-.2px;margin-bottom:3px}
-body.pro .er{color:#1d1d1f}
 .ec{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--c);margin-bottom:2px;font-weight:700;letter-spacing:.04em}
-body.pro .ec{color:#0071e3;font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace}
 .ep2{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);margin-bottom:12px}
-body.pro .ep2{color:#c7c7cc;font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace}
 .epi{font-size:13px;color:var(--sub);line-height:1.65;padding-left:13px;position:relative;margin-bottom:5px}
-body.pro .epi{color:#6e6e73}
 .epi::before{content:'›';position:absolute;left:0;color:var(--c);font-size:14px;line-height:1.35}
-body.pro .epi::before{color:#0071e3}
 .ebd{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:3px 9px;border-radius:5px;white-space:nowrap}
 .eb-up{background:rgba(245,158,11,.1);color:var(--amber);border:1px solid rgba(245,158,11,.22)}
 .eb-done{background:rgba(0,200,255,.08);color:var(--c);border:1px solid rgba(0,200,255,.18)}
-body.pro .eb-done{background:rgba(0,113,227,.07);color:#0071e3;border-color:rgba(0,113,227,.2)}
 
-/* INTERESTS — compact pixel-art arcade tiles (fun mode only) */
+/* ── INTERESTS SECTION ────────────────────── */
+/* This is the "nerdy" section — all interests woven as interactive cards with real imagery/animations */
 #interests{background:var(--bg2);transition:background .4s}
-body.pro #interests{display:none}
-.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.ixcard{border-radius:14px;border:1px solid var(--b2);background:var(--bg3);cursor:pointer;transition:all .3s var(--ease);position:relative;overflow:hidden}
-.ixcard:hover{transform:translateY(-5px) scale(1.02);border-color:rgba(0,200,255,.38);box-shadow:0 16px 48px rgba(0,0,0,.4)}
-.ixscreen{height:88px;background:#050510;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.ixscreen::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.12) 3px,rgba(0,0,0,.12) 4px);pointer-events:none;z-index:1}
-.ixscreen canvas{image-rendering:pixelated;z-index:0;width:64px;height:64px}
-.ixinfo{padding:10px 12px 12px}
-.ixtitle{font-size:13px;font-weight:700;margin-bottom:2px;letter-spacing:-.15px}
-.ixsub{font-size:10px;color:var(--sub);font-family:'JetBrains Mono',monospace;letter-spacing:.02em}
-.ixbadge{position:absolute;top:8px;right:8px;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.07);z-index:3}
+.int-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:0}
+.icard{border-radius:18px;overflow:hidden;position:relative;cursor:pointer;border:1px solid var(--b2);transition:all .35s var(--ease);background:var(--bg3);min-height:200px}
+.icard:hover{transform:translateY(-5px) scale(1.02);border-color:rgba(0,200,255,.4);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.icard.tall{grid-row:span 2;min-height:420px}
+.icard-bg{position:absolute;inset:0;transition:transform .6s var(--ease)}
+.icard:hover .icard-bg{transform:scale(1.06)}
+.icard-ov{position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to top,rgba(7,10,18,.95) 0%,rgba(7,10,18,.5) 50%,rgba(7,10,18,.05) 100%)}
+.icard-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,200,255,.7);margin-bottom:4px}
+.icard-title{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.2px;margin-bottom:4px}
+.icard-sub{font-size:11px;color:var(--sub);line-height:1.5}
+.icard-badge{position:absolute;top:12px;right:12px;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;padding:3px 9px;border-radius:5px;backdrop-filter:blur(8px)}
 
-/* SOLAR SYSTEM (SKILLS) */
+/* Pokémon card — red/white pokedex feel */
+.icard.pokemon .icard-bg{background:radial-gradient(circle at 30% 40%,#cc0000 0%,#880000 40%,#440000 100%)}
+
+/* Star Wars card — space dark with saber glow */
+.icard.starwars .icard-bg{background:#000510;position:absolute;inset:0}
+.icard.starwars canvas{position:absolute;inset:0;width:100%;height:100%}
+
+/* Space card */
+.icard.space .icard-bg{background:#000510;position:absolute;inset:0}
+.icard.space canvas{position:absolute;inset:0;width:100%;height:100%}
+
+/* Iron Man card */
+.icard.ironman .icard-bg{background:radial-gradient(circle at 50% 30%,#8b0000,#400000,#200000);position:absolute;inset:0}
+.arc-reactor{position:absolute;top:20px;right:20px;width:64px;height:64px;z-index:2}
+.arc-outer{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(0,200,255,.4);animation:arcGlow 2s ease-in-out infinite alternate}
+.arc-inner{position:absolute;inset:8px;border-radius:50%;border:2px solid rgba(0,200,255,.6)}
+.arc-core{position:absolute;inset:18px;border-radius:50%;background:rgba(0,200,255,.8);box-shadow:0 0 12px var(--c),0 0 24px rgba(0,200,255,.4);animation:arcPulse 1.5s ease-in-out infinite alternate}
+@keyframes arcGlow{from{box-shadow:0 0 8px rgba(0,200,255,.3)}to{box-shadow:0 0 20px rgba(0,200,255,.6),0 0 40px rgba(0,200,255,.2)}}
+@keyframes arcPulse{from{opacity:.7}to{opacity:1}}
+
+/* Flash/Invincible */
+.icard.heroes .icard-bg{background:linear-gradient(135deg,#1a0500,#3d1200,#7d2600);position:absolute;inset:0}
+
+/* Rubik's cube */
+.icard.rubik .icard-bg{background:#0a0a18;position:absolute;inset:0}
+#rubik-cv{position:absolute;top:10px;right:10px;width:120px;height:110px;z-index:2}
+
+/* Space/Quantum */
+.icard.quantum .icard-bg{background:radial-gradient(ellipse at 50% 0%,#0d0030,#050015)}
+
+/* ── SOLAR SYSTEM (SKILLS) ─────────────────── */
 #skills{background:var(--bg);transition:background .4s}
-body.pro #skills{background:#ffffff}
 .solar{position:relative;width:100%;height:600px;margin-top:16px}
 .ssun{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,255,.16),transparent 70%);border:1px solid rgba(0,200,255,.28);backdrop-filter:blur(10px);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--c);letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.6;z-index:10}
 .ssun::after{content:'';position:absolute;inset:-12px;border-radius:50%;border:1px solid rgba(0,200,255,.06);animation:sop 3s ease-in-out infinite}
@@ -253,36 +259,31 @@ body.pro #skills{background:#ffffff}
 .pd{border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .3s var(--ease)}
 .pd:hover{transform:scale(1.45)!important}
 .pl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.04em;color:var(--sub);white-space:nowrap;background:rgba(7,10,18,.9);padding:2px 7px;border-radius:100px;border:1px solid var(--b2)}
+body.pro .pl{background:rgba(244,244,248,.95)}
 .sktip{position:fixed;background:rgba(8,10,22,.97);border:1px solid var(--b2);backdrop-filter:blur(20px);border-radius:12px;padding:12px 15px;max-width:230px;z-index:1000;pointer-events:none;opacity:0;transition:opacity .18s;box-shadow:0 20px 56px rgba(0,0,0,.6)}
+body.pro .sktip{background:rgba(255,255,255,.98);box-shadow:0 8px 32px rgba(0,0,0,.12)}
 .sktip.show{opacity:1}
 .stname{font-size:12px;font-weight:700;color:var(--text);margin-bottom:7px;display:flex;align-items:center;gap:6px}
 .stitem{font-size:10px;color:var(--sub);padding:3px 0;border-bottom:1px solid var(--b);line-height:1.5}
 .stitem:last-child{border-bottom:none}
+/* Pro mode skills fallback */
 body.pro #solar{display:none}
 body.pro #proskills{display:grid}
 #proskills{display:none;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
 .psk{background:var(--glass);border:1px solid var(--b2);border-radius:14px;padding:16px;transition:all .3s var(--ease)}
-body.pro .psk{background:#ffffff;border:none;box-shadow:0 1px 4px rgba(0,0,0,.05),0 4px 16px rgba(0,0,0,.06)}
-.psk:hover{border-color:rgba(0,200,255,.28);transform:translateY(-2px)}
-body.pro .psk:hover{box-shadow:0 4px 12px rgba(0,0,0,.08),0 12px 32px rgba(0,0,0,.08);transform:translateY(-2px)}
+.psk:hover{border-color:rgba(0,96,192,.28);transform:translateY(-2px)}
 .psk-n{font-size:13px;font-weight:700;margin-bottom:3px}
-body.pro .psk-n{color:#1d1d1f}
 .psk-s{font-size:11px;color:var(--sub);line-height:1.55}
-body.pro .psk-s{color:#6e6e73}
 
-/* PROJECTS */
+/* ── PROJECTS ──────────────────────────────── */
 #projects{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);transition:background .4s}
-body.pro #projects{background:linear-gradient(180deg,#ffffff 0%,#f5f5f7 100%)}
 .pf-bar{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:32px}
 .pf{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;padding:6px 13px;border-radius:7px;border:1px solid var(--b2);background:transparent;color:var(--sub);cursor:pointer;transition:all .2s;text-transform:uppercase;font-weight:700}
 .pf:hover,.pf.on{background:var(--c);border-color:var(--c);color:#000}
-body.pro .pf{border-color:rgba(0,0,0,.1);color:#6e6e73;font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace}
-body.pro .pf:hover,body.pro .pf.on{background:#0071e3;border-color:#0071e3;color:#fff}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .pcard{border-radius:16px;overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;border:1px solid var(--b2);transition:all .38s var(--ease)}
-body.pro .pcard{border:none;box-shadow:0 1px 4px rgba(0,0,0,.06),0 4px 20px rgba(0,0,0,.07)}
 .pcard:hover{transform:translateY(-6px) scale(1.015);border-color:rgba(0,200,255,.42);box-shadow:0 20px 50px rgba(0,0,0,.45)}
-body.pro .pcard:hover{box-shadow:0 8px 40px rgba(0,0,0,.14),0 2px 8px rgba(0,0,0,.07);transform:translateY(-4px) scale(1.01)}
+body.pro .pcard:hover{border-color:rgba(0,96,192,.35)}
 .pcard.wide{grid-column:span 2;aspect-ratio:2/1}
 .pcard-img{position:absolute;inset:0;background-size:cover;background-position:center;background-color:var(--bg3);transition:transform .6s var(--ease)}
 .pcard:hover .pcard-img{transform:scale(1.06)}
@@ -301,170 +302,112 @@ body.pro .pcard:hover{box-shadow:0 8px 40px rgba(0,0,0,.14),0 2px 8px rgba(0,0,0
 .ptags{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
 .ptag{font-family:'JetBrains Mono',monospace;font-size:8px;padding:2px 6px;border-radius:4px;background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.16);color:rgba(0,200,255,.8)}
 
-/* MODAL */
+/* ── MODAL ─────────────────────────────────── */
 .mbg{display:none;position:fixed;inset:0;z-index:800;background:rgba(0,0,0,.65);backdrop-filter:blur(20px);align-items:center;justify-content:center;padding:18px}
 .mbg.open{display:flex;animation:mf .28s var(--ease)}
 @keyframes mf{from{opacity:0}to{opacity:1}}
 .mbox{background:var(--bg3);border:1px solid var(--b2);border-radius:20px;max-width:740px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 36px 100px rgba(0,0,0,.55);animation:mu .32s var(--ease)}
-body.pro .mbox{background:#ffffff;border:none;box-shadow:0 24px 80px rgba(0,0,0,.18)}
+body.pro .mbox{background:#fff}
 @keyframes mu{from{opacity:0;transform:scale(.95) translateY(14px)}to{opacity:1;transform:none}}
 .mhdr{padding:20px 24px 0;display:flex;justify-content:space-between;align-items:flex-start}
 .mclose{width:28px;height:28px;border-radius:50%;background:var(--glass);border:1px solid var(--b2);color:var(--sub);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;line-height:1}
-body.pro .mclose{background:rgba(0,0,0,.04);border-color:rgba(0,0,0,.1);color:#6e6e73}
 .mclose:hover{background:var(--r);border-color:var(--r);color:#fff}
 .mbd{padding:0 24px 24px}
 .meye{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.18em;color:var(--c);text-transform:uppercase;margin-bottom:6px}
-body.pro .meye{color:#0071e3;font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace}
 .mtitle{font-size:20px;font-weight:800;letter-spacing:-.4px;margin-bottom:12px;line-height:1.15}
-body.pro .mtitle{color:#1d1d1f}
 .mtags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px}
 .mtag{font-family:'JetBrains Mono',monospace;font-size:8px;padding:3px 7px;border-radius:4px;background:rgba(0,200,255,.06);border:1px solid var(--b2);color:var(--c)}
-body.pro .mtag{background:rgba(0,113,227,.05);border-color:rgba(0,113,227,.15);color:#0071e3}
 .slwrap{border-radius:11px;overflow:hidden;background:var(--glass);margin-bottom:14px;position:relative;border:1px solid var(--b)}
 .sltrack{display:flex;transition:transform .4s cubic-bezier(.4,0,.2,1)}
 .slimg{min-width:100%;height:260px;object-fit:cover}
 .slbtn{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:rgba(7,10,18,.8);border:1px solid var(--b2);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;font-size:13px;transition:all .2s}
 .slbtn:hover{background:var(--c);color:#000;border-color:var(--c)}
-body.pro .slbtn:hover{background:#0071e3;color:#fff}
 .slprev{left:8px}.slnext{right:8px}
 .sldots{display:flex;justify-content:center;gap:5px;margin-bottom:12px}
 .sdot{width:5px;height:5px;border-radius:50%;background:var(--b2);cursor:pointer;border:none;transition:all .22s}
 .sdot.on{background:var(--c);width:14px;border-radius:2.5px}
-body.pro .sdot.on{background:#0071e3}
 .mvid{display:inline-flex;align-items:center;gap:7px;background:rgba(0,200,255,.07);border:1px solid rgba(0,200,255,.22);color:var(--c);padding:8px 13px;border-radius:8px;font-size:10px;font-weight:700;margin-bottom:14px;font-family:'JetBrains Mono',monospace;transition:all .2s}
 .mvid:hover{background:rgba(0,200,255,.14)}
-body.pro .mvid{background:rgba(0,113,227,.05);border-color:rgba(0,113,227,.2);color:#0071e3}
 .mlbl{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--sub);margin-bottom:6px}
-body.pro .mlbl{color:#6e6e73;font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace}
 .mtxt{font-size:13px;color:var(--sub);line-height:1.9;margin-bottom:14px}
-body.pro .mtxt{color:#6e6e73}
 .mreflect{background:rgba(0,200,255,.035);border:1px solid rgba(0,200,255,.1);border-radius:10px;padding:14px}
-body.pro .mreflect{background:rgba(0,113,227,.03);border-color:rgba(0,113,227,.1)}
-.mext-links{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
-.mext-link{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;font-size:10px;font-weight:700;font-family:'JetBrains Mono',monospace;border:1px solid var(--b2);color:var(--sub);transition:all .2s;background:var(--glass)}
-.mext-link:hover{border-color:var(--c);color:var(--c);background:rgba(0,200,255,.05)}
 
-/* ABOUT */
+/* ── ABOUT ─────────────────────────────────── */
 #about{background:var(--bg);transition:background .4s}
-body.pro #about{background:#ffffff}
 .about-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:start}
 .abig{font-size:clamp(16px,1.8vw,20px);font-weight:600;line-height:1.65;margin-bottom:18px;letter-spacing:-.15px}
-body.pro .abig{color:#1d1d1f}
 .abig em{color:var(--c);font-style:normal}
-body.pro .abig em{color:#0071e3}
 .ap{font-size:13px;color:var(--sub);line-height:1.9;margin-bottom:11px}
-body.pro .ap{color:#6e6e73}
 .ap strong{color:var(--text);font-weight:600}
-body.pro .ap strong{color:#1d1d1f}
 .tl{display:flex;flex-direction:column}
 .tli{display:grid;grid-template-columns:auto 1fr;gap:12px;padding-bottom:22px;position:relative}
 .tli:not(:last-child)::after{content:'';position:absolute;left:10px;top:22px;bottom:0;width:1px;background:linear-gradient(180deg,rgba(0,200,255,.2),transparent)}
-body.pro .tli:not(:last-child)::after{background:linear-gradient(180deg,rgba(0,113,227,.2),transparent)}
 .tldot{width:21px;height:21px;border-radius:50%;background:var(--bg);border:1.5px solid var(--b2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all .3s}
-body.pro .tldot{background:#ffffff;border-color:rgba(0,0,0,.1)}
 .tli:hover .tldot{border-color:var(--c)}
-body.pro .tli:hover .tldot{border-color:#0071e3}
 .tlinner{width:6px;height:6px;border-radius:50%;background:var(--dim);transition:background .3s}
 .tli:hover .tlinner{background:var(--c)}
-body.pro .tli:hover .tlinner{background:#0071e3}
 .tlyr{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--c);letter-spacing:.06em;margin-bottom:2px}
-body.pro .tlyr{color:#0071e3;font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace}
 .tlnm{font-size:12px;font-weight:700;margin-bottom:1px;letter-spacing:-.15px}
-body.pro .tlnm{color:#1d1d1f}
 .tlde{font-size:11px;color:var(--sub);line-height:1.55}
-body.pro .tlde{color:#6e6e73}
 
-/* CONTACT */
+/* ── CONTACT ───────────────────────────────── */
 #contact{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);transition:background .4s}
-body.pro #contact{background:linear-gradient(180deg,#ffffff 0%,#f5f5f7 100%)}
 .cg{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .cbig{font-size:clamp(36px,5vw,62px);font-weight:800;letter-spacing:-3.5px;line-height:.93;margin-bottom:16px}
-body.pro .cbig{color:#1d1d1f;letter-spacing:-4px}
 .cbig span{color:var(--c)}
-body.pro .cbig span{background:linear-gradient(135deg,#0071e3,#34aadc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .csub{font-size:13px;color:var(--sub);line-height:1.8;max-width:340px;margin-bottom:22px}
-body.pro .csub{color:#6e6e73}
 .clinks{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
 .cl{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:9px;font-size:12px;font-weight:700;transition:all .2s}
-.cl.p{background:var(--c);color:#000}
-body.pro .cl.p{background:#0071e3;color:#fff;border-radius:12px}
-.cl.p:hover{opacity:.88;transform:translateY(-2px)}
-.cl.o{background:var(--glass);border:1px solid var(--b2);color:var(--sub)}
-body.pro .cl.o{background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.09);color:#6e6e73;border-radius:12px}
-.cl.o:hover{border-color:var(--c);color:var(--c);transform:translateY(-2px)}
-body.pro .cl.o:hover{border-color:#0071e3;color:#0071e3;background:rgba(0,113,227,.04)}
+.cl.p{background:var(--c);color:#000}.cl.p:hover{opacity:.88;transform:translateY(-2px)}
+.cl.o{background:var(--glass);border:1px solid var(--b2);color:var(--sub)}.cl.o:hover{border-color:var(--c);color:var(--c);transform:translateY(-2px)}
 .cnote{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);letter-spacing:.06em;line-height:1.75}
-body.pro .cnote{font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace;color:#c7c7cc}
 .cform{background:var(--glass);border:1px solid var(--b2);border-radius:18px;padding:26px;backdrop-filter:blur(14px)}
-body.pro .cform{background:#ffffff;border:none;box-shadow:0 1px 4px rgba(0,0,0,.06),0 8px 32px rgba(0,0,0,.07);backdrop-filter:none}
 .flbl{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;color:var(--sub);text-transform:uppercase;margin-bottom:5px}
-body.pro .flbl{font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace;color:#6e6e73}
 .finp{width:100%;background:rgba(0,0,0,.25);border:1px solid var(--b2);border-radius:8px;padding:10px 13px;color:var(--text);font-size:12px;transition:all .2s;outline:none;margin-bottom:12px}
-body.pro .finp{background:#f5f5f7;border:1px solid rgba(0,0,0,.08);color:#1d1d1f}
+body.pro .finp{background:var(--glass2);color:var(--text)}
 .finp:focus{border-color:var(--c);box-shadow:0 0 0 3px rgba(0,200,255,.1)}
-body.pro .finp:focus{border-color:#0071e3;box-shadow:0 0 0 3px rgba(0,113,227,.12)}
 .finp::placeholder{color:var(--dim)}
-body.pro .finp::placeholder{color:#c7c7cc}
 textarea.finp{resize:vertical;min-height:90px;line-height:1.6}
 .fsub{width:100%;padding:11px;background:var(--c);color:#000;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .2s}
-body.pro .fsub{background:#0071e3;color:#fff;border-radius:10px}
 .fsub:hover{opacity:.88;transform:translateY(-1px)}.fsub:active{transform:scale(.98)}
 .fok{display:none;text-align:center;padding:14px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--g)}
 
-/* FOOTER */
+/* ── FOOTER ────────────────────────────────── */
 footer{position:relative;z-index:3;background:var(--bg2);border-top:1px solid var(--b);padding:32px 60px;transition:background .4s}
-body.pro footer{background:#f5f5f7;border-top:1px solid rgba(0,0,0,.07)}
 .fi{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
 .fl{display:flex;align-items:center;gap:8px}
 .flogo{width:28px;height:28px;border-radius:7px;background:linear-gradient(135deg,var(--c),var(--purple));display:flex;align-items:center;justify-content:center}
-body.pro .flogo{background:linear-gradient(135deg,#0071e3,#34aadc)}
 .fnm{font-size:12px;font-weight:700}
-body.pro .fnm{color:#1d1d1f}
 .flinks{display:flex;gap:16px}
 .flinks a{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
-body.pro .flinks a{font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace;color:#c7c7cc}
 .flinks a:hover{color:var(--c)}
-body.pro .flinks a:hover{color:#0071e3}
 .fr{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--dim);text-align:right;line-height:1.75}
-body.pro .fr{font-family:ui-monospace,'SF Mono','JetBrains Mono',monospace;color:#c7c7cc}
 
 /* BTT */
 #btt{position:fixed;bottom:20px;left:20px;width:38px;height:38px;border-radius:10px;background:var(--glass);border:1px solid var(--b2);color:var(--sub);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:all .3s var(--ease);z-index:400;backdrop-filter:blur(12px);line-height:1}
 #btt.show{opacity:1;pointer-events:all;transform:none}
 #btt:hover{border-color:var(--c);color:var(--c)}
-body.pro #btt{background:rgba(255,255,255,.8);border-color:rgba(0,0,0,.1);color:#6e6e73}
-body.pro #btt:hover{border-color:#0071e3;color:#0071e3}
 
-/* PRO MODE — Apple section backgrounds */
-body.pro #interests{display:none}
-body.pro #experience{background:linear-gradient(180deg,#f5f5f7,#ffffff)}
-body.pro #skills{background:#ffffff}
-body.pro #projects{background:linear-gradient(180deg,#ffffff,#f5f5f7)}
-body.pro #about{background:#ffffff}
-body.pro #contact{background:linear-gradient(180deg,#ffffff,#f5f5f7)}
-
-/* RESPONSIVE */
+/* ── RESPONSIVE ────────────────────────────── */
 @media(max-width:1024px){
   #hero{grid-template-columns:1fr;padding:110px 32px 48px}
   .hright{display:none}
   .about-grid,.cg{grid-template-columns:1fr;gap:40px}
   nav{width:calc(100% - 28px)}.nlinks{display:none}.nburg{display:flex}
   .wrap{padding:60px 32px}.sab-wrap{padding:16px 32px}
-  .int-grid{grid-template-columns:repeat(3,1fr)}
+  .int-grid{grid-template-columns:1fr 1fr}
+  .icard.tall{grid-row:span 1}
   #proskills{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   .wrap{padding:48px 20px}#hero{padding:100px 20px 42px}
   .hbtns{flex-direction:column}.ba,.bb{justify-content:center}
   .pgrid{grid-template-columns:1fr}.pcard.wide{grid-column:span 1;aspect-ratio:4/3}
-  .solar{height:340px}
-  .int-grid{grid-template-columns:repeat(2,1fr)}
+  .solar{height:340px}.int-grid{grid-template-columns:1fr}
   footer{padding:26px 20px}.fi{grid-template-columns:1fr;text-align:center;gap:12px}
   .fr{text-align:center}.flinks{flex-wrap:wrap;gap:10px;justify-content:center}
   .sab-wrap{display:none}#proskills{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-  .int-grid{grid-template-columns:1fr 1fr}
+  .icard.tall{grid-row:span 1}
 }
 </style>
 </head>
@@ -562,27 +505,23 @@ body.pro #contact{background:linear-gradient(180deg,#ffffff,#f5f5f7)}
         </div>
         <div class="gb-notch">
           <div class="gb-dot"></div>
-          <span class="gb-dot-label" id="gb-mode-label">ROBOT MODE</span>
+          <span class="gb-dot-label">PORTFOLIO v2026</span>
           <div class="gb-dot"></div>
         </div>
         <div class="gb-controls">
-          <div class="dpad" id="dpad" title="Click to control snake">
+          <div class="dpad">
             <div class="dp-h"></div>
             <div class="dp-v"></div>
             <div class="dp-center"></div>
-            <span class="dp-arrow up">▲</span>
-            <span class="dp-arrow down">▼</span>
-            <span class="dp-arrow left">◀</span>
-            <span class="dp-arrow right">▶</span>
           </div>
           <div class="ab-btns">
-            <div class="ab-btn b-btn" onclick="gbAction('b')" title="B — Robot dance!">B</div>
-            <div class="ab-btn a-btn" onclick="gbAction('a')" title="A — Toggle Snake game">A</div>
+            <div class="ab-btn b-btn" onclick="gbAction('b')">B</div>
+            <div class="ab-btn a-btn" onclick="gbAction('a')">A</div>
           </div>
         </div>
         <div class="gb-smbtns">
-          <button class="gb-smbtn" onclick="gbAction('select')" title="SELECT — Next message">SELECT</button>
-          <button class="gb-smbtn" onclick="gbAction('start')" title="START — Pause/Resume">START</button>
+          <button class="gb-smbtn" onclick="gbAction('select')">SELECT</button>
+          <button class="gb-smbtn" onclick="gbAction('start')">START</button>
         </div>
       </div>
     </div>
@@ -592,8 +531,8 @@ body.pro #contact{background:linear-gradient(180deg,#ffffff,#f5f5f7)}
 <!-- MARQUEE -->
 <div class="mqwrap">
   <div class="mqtrack">
-    <span class="mi">Python</span><span class="mi">C++</span><span class="mi">ML/AI</span><span class="mi">CNC Milling</span><span class="mi">Data Analysis</span><span class="mi">Arduino</span><span class="mi">SolidWorks</span><span class="mi">Robotics</span><span class="mi">OntarioSkills</span><span class="mi">DECA Provincials</span><span class="mi">Quantum School</span><span class="mi">Metal Lathe</span><span class="mi">UWaterloo CE '31</span><span class="mi">ImpulseBeaver</span><span class="mi">TypeScript</span><span class="mi">Chrome MV3</span><span class="mi">Hot Glue Engineering</span>
-    <span class="mi">Python</span><span class="mi">C++</span><span class="mi">ML/AI</span><span class="mi">CNC Milling</span><span class="mi">Data Analysis</span><span class="mi">Arduino</span><span class="mi">SolidWorks</span><span class="mi">Robotics</span><span class="mi">OntarioSkills</span><span class="mi">DECA Provincials</span><span class="mi">Quantum School</span><span class="mi">Metal Lathe</span><span class="mi">UWaterloo CE '31</span><span class="mi">ImpulseBeaver</span><span class="mi">TypeScript</span><span class="mi">Chrome MV3</span><span class="mi">Hot Glue Engineering</span>
+    <span class="mi">Python</span><span class="mi">C++</span><span class="mi">ML/AI</span><span class="mi">CNC Milling</span><span class="mi">Data Analysis</span><span class="mi">Arduino</span><span class="mi">SolidWorks</span><span class="mi">Robotics</span><span class="mi">OntarioSkills</span><span class="mi">DECA Provincials</span><span class="mi">Quantum School</span><span class="mi">Metal Lathe</span><span class="mi">UWaterloo CE '31</span><span class="mi">Hot Glue Engineering</span>
+    <span class="mi">Python</span><span class="mi">C++</span><span class="mi">ML/AI</span><span class="mi">CNC Milling</span><span class="mi">Data Analysis</span><span class="mi">Arduino</span><span class="mi">SolidWorks</span><span class="mi">Robotics</span><span class="mi">OntarioSkills</span><span class="mi">DECA Provincials</span><span class="mi">Quantum School</span><span class="mi">Metal Lathe</span><span class="mi">UWaterloo CE '31</span><span class="mi">Hot Glue Engineering</span>
   </div>
 </div>
 
@@ -611,21 +550,568 @@ body.pro #contact{background:linear-gradient(180deg,#ffffff,#f5f5f7)}
   <div class="wrap">
     <div class="shead rev"><div class="eye">Where I've worked</div><h2 class="sh">Experience</h2><p class="ssub">Three internships across data, marketing, and AI — all while finishing high school.</p></div>
     <div class="explist">
-
-      <!-- Ascendance Foundry -->
       <div class="gc expcard rev d1">
-        <div class="eg">
-          <div>
-            <div class="er">AI Intern</div>
-            <div class="ec">Ascendance Foundry</div>
-            <div class="ep2">Summer 2026</div>
-            <div class="epi" style="padding-left:0">
-              <span style="display:inline-flex;align-items:center;gap:7px;color:var(--c);font-size:12px">
-                <span style="width:5px;height:5px;border-radius:50%;background:var(--c);animation:gpulse 1.5s infinite;flex-shrink:0;display:inline-block"></span>
-                Starting soon — building AI tools.
-              </span>
-            </div>
-            <!-- Fill these bullets once the internship begins (Summer 2026) -->
-            <!-- <div class="epi">What you actually built or shipped.</div> -->
-            <!-- <div class="epi">Quantified impact — metric, scale, or outcome.</div> -->
-            <!-- <div class="epi">Interesting technical challenge solved.</div> -->
+        <div class="eg"><div><div class="er">AI Intern</div><div class="ec">Ascendance Foundry</div><div class="ep2">Summer 2026</div><div class="epi" style="padding-left:0"><span style="display:inline-flex;align-items:center;gap:7px;color:var(--c);font-size:12px"><span style="width:5px;height:5px;border-radius:50%;background:var(--c);animation:gpulse 1.5s infinite;flex-shrink:0;display:inline-block"></span>Starting soon — building AI tools.</span></div></div><span class="ebd eb-up">Upcoming</span></div>
+      </div>
+      <div class="gc expcard rev d2">
+        <div class="eg"><div><div class="er">Data Analyst Intern</div><div class="ec">Twin Brothers Wholesale · Lansing, MI</div><div class="ep2">November 2025 – January 2026</div><div class="epi">Analyzed purchasing patterns across operations handling ~$30K/day. Think warehouse logistics, but with Python.</div><div class="epi">Identified recurring trend signals in sales data that reduced stock imbalances.</div><div class="epi">Delivered data-driven recommendations that improved supply chain decisions.</div></div><div style="text-align:right"><span class="ebd eb-done" style="display:block;margin-bottom:6px">Completed</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);line-height:1.7;display:block">Python · Pandas<br>Excel · Analysis</span></div></div>
+      </div>
+      <div class="gc expcard rev d3">
+        <div class="eg"><div><div class="er">Real Estate Marketing Intern</div><div class="ec">Century 21 · Brampton, ON</div><div class="ep2">July – August 2025</div><div class="epi">Analyzed sales data to identify buyer segments and market trends.</div><div class="epi">Built listing prioritization strategies based on demographic and geographic patterns.</div><div class="epi">Handled 50+ outbound calls daily — developed communication and persistence.</div></div><div style="text-align:right"><span class="ebd eb-done" style="display:block;margin-bottom:6px">Completed</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--dim);line-height:1.7;display:block">Excel · Analysis<br>Cold outreach</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ████ SKILLS ████ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="shead rev"><div class="eye">What I work with</div><h2 class="sh">Skills & Tools</h2><p class="ssub">Hover any planet to see what I've built with it. Software is where I'm headed. Hardware is where I started.</p></div>
+    <div class="solar" id="solar"><div class="ssun" id="ssun">SKILLS<br>&amp;<br>TOOLS</div></div>
+    <div id="proskills">
+      <div class="psk gc" style="padding:16px"><div class="psk-n">Python</div><div class="psk-s">Data analysis, ML pipelines, automation. My primary tool.</div></div>
+      <div class="psk gc" style="padding:16px"><div class="psk-n">C++</div><div class="psk-s">OntarioSkills robot motor logic, Arduino sensor systems.</div></div>
+      <div class="psk gc" style="padding:16px"><div class="psk-n">AI / ML</div><div class="psk-s">Predictive models, pattern recognition. Ascendance Foundry internship.</div></div>
+      <div class="psk gc" style="padding:16px"><div class="psk-n">Arduino & Embedded</div><div class="psk-s">Smart Trash Can, Robot Arm, Line Follower. Real hardware, real constraints.</div></div>
+      <div class="psk gc" style="padding:16px"><div class="psk-n">CNC & Manufacturing</div><div class="psk-s">V-Carve toolpaths, aluminum milling, metal lathe, 3D printing.</div></div>
+      <div class="psk gc" style="padding:16px"><div class="psk-n">Data Analysis</div><div class="psk-s">Excel, Pandas. Inventory optimization at real operations scale.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SABER 2 (red) -->
+<div class="sab-wrap" style="background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);transition:background .4s">
+  <div class="sab" style="flex-direction:row-reverse">
+    <div class="sh2" id="s2h" style="background:linear-gradient(90deg,#555,#888,#333);border-radius:0 3px 3px 0"></div>
+    <div class="sb" id="s2b" style="background:linear-gradient(270deg,rgba(255,60,60,.95),rgba(255,60,60,.4),transparent);box-shadow:0 0 7px #ff3c3c,0 0 18px rgba(255,60,60,.35);animation:sf1 4.5s ease-in-out infinite alternate;border-radius:2px 0 0 2px"></div>
+  </div>
+</div>
+
+<!-- ████ PROJECTS ████ -->
+<section id="projects">
+  <div class="wrap">
+    <div class="shead rev"><div class="eye">What I've built</div><h2 class="sh">Projects</h2><p class="ssub">Click any card for the full story. The claw was basically a butterfingers at first.</p></div>
+    <div class="pf-bar">
+      <button class="pf on" onclick="fp('all',this)">All</button>
+      <button class="pf" onclick="fp('robotics',this)">Robotics</button>
+      <button class="pf" onclick="fp('arduino',this)">Arduino</button>
+      <button class="pf" onclick="fp('manufacturing',this)">Manufacturing</button>
+    </div>
+    <div class="pgrid">
+      <div class="pcard wide rev" data-cat="robotics" onclick="openP('ontario')"><div class="pcard-img" style="background-image:url('../HTML/OntarioSkills.png')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">Robotics · Video Available</div><div class="pname">OntarioSkills Competition Robot</div><div class="pdesc">Motorized claw robot. 5th place provincially. The claw had opinions about dropping things.</div><div class="ptags"><span class="ptag">C++</span><span class="ptag">Motor Control</span><span class="ptag">Sensors</span></div></div></div>
+      <div class="pcard rev d1" data-cat="arduino" onclick="openP('trash')"><div class="pcard-img" style="background-image:url('../HTML/SmartTrashBin.jpg')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">Arduino</div><div class="pname">Smart Trash Can</div><div class="pdesc">Opens when you approach. Works on the dog too.</div><div class="ptags"><span class="ptag">Arduino</span><span class="ptag">Servo</span><span class="ptag">Ultrasonic</span></div></div></div>
+      <div class="pcard rev d2" data-cat="manufacturing" onclick="openP('metalpen')"><div class="pcard-img" style="background-image:url('../HTML/Pen1.jpg')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">Manufacturing</div><div class="pname">Metal Pen</div><div class="pdesc">Turned on a lathe. Knurled grip. Writes great.</div><div class="ptags"><span class="ptag">Metal Lathe</span><span class="ptag">Threading</span></div></div></div>
+      <div class="pcard rev" data-cat="robotics" onclick="openP('linerobot')"><div class="pcard-img" style="background-image:url('../HTML/Line Following.png')"></div><div class="pcard-top"><span class="pstat stw">In Progress</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">Robotics · Video Available</div><div class="pname">Line Following Robot</div><div class="pdesc">Follows a line, avoids obstacles. Autonomous and opinionated.</div><div class="ptags"><span class="ptag">Arduino</span><span class="ptag">IR</span><span class="ptag">Ultrasonic</span></div></div></div>
+      <div class="pcard wide rev d1" data-cat="manufacturing" onclick="openP('metaltag')"><div class="pcard-img" style="background-image:url('../HTML/Asteroid.jpg')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">CNC / Manufacturing</div><div class="pname">Metal Tag – Asteroid Impact Design</div><div class="pdesc">CNC-machined aluminum with custom asteroid scene.</div><div class="ptags"><span class="ptag">CNC Milling</span><span class="ptag">V-Carve</span><span class="ptag">Aluminum</span></div></div></div>
+      <div class="pcard rev d2" data-cat="arduino" onclick="openP('robotarm')"><div class="pcard-img" style="background-image:url('../HTML/RobotArmImage1.png')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">Arduino · Video Available</div><div class="pname">Arduino Robot Arm</div><div class="pdesc">Popsicle sticks, servos, hot glue. Surprisingly functional.</div><div class="ptags"><span class="ptag">Servos</span><span class="ptag">Potentiometers</span></div></div></div>
+      <div class="pcard rev" data-cat="manufacturing" onclick="openP('pokemon')"><div class="pcard-img" style="background-image:url('../HTML/PokemonTrophy1.jpg')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">3D Printing</div><div class="pname">Pokémon Trophy</div><div class="pdesc">For DECA provincials. If you're winning, the trophy should match the energy.</div><div class="ptags"><span class="ptag">SolidWorks</span><span class="ptag">FDM</span></div></div></div>
+      <div class="pcard rev d1" data-cat="manufacturing" onclick="openP('airplane')"><div class="pcard-img" style="background-image:url('../HTML/Airplane1.png')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">CNC / Manufacturing</div><div class="pname">Airplane Chocolate Mould</div><div class="pdesc">CNC-milled aluminum mould. The final product flies directly into your mouth.</div><div class="ptags"><span class="ptag">CNC</span><span class="ptag">V-Carve</span></div></div></div>
+      <div class="pcard rev d2" data-cat="arduino" onclick="openP('nightlight')"><div class="pcard-img" style="background-image:url('../HTML/Nightlight.jpg')"></div><div class="pcard-top"><span class="pstat std">Completed</span><span class="parrow">↗</span></div><div class="pcard-ov"><div class="pcat">Circuit Build</div><div class="pname">Night Light</div><div class="pdesc">Activates at dark, off in light. Soldered on perfboard. Clean build.</div><div class="ptags"><span class="ptag">Soldering</span><span class="ptag">Perfboard</span><span class="ptag">LED</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ████ INTERESTS ████ — WOVEN IN AS INTERACTIVE TILES -->
+<section id="interests">
+  <div class="wrap">
+    <div class="shead rev"><div class="eye">What I'm into</div><h2 class="sh">Interests</h2><p class="ssub">These aren't just hobbies. They're woven into how I think and what I build.</p></div>
+    <div class="int-grid">
+
+      <!-- POKÉMON — animated canvas Pokedex card -->
+      <div class="icard pokemon tall rev">
+        <div class="icard-bg"></div>
+        <canvas id="pkmn-cv" width="400" height="420" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+        <!-- Pokéball decoration -->
+        <svg style="position:absolute;top:-30px;right:-30px;width:180px;height:180px;opacity:.08" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="white" stroke-width="2"/><line x1="2" y1="50" x2="98" y2="50" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="12" fill="none" stroke="white" stroke-width="2"/><circle cx="50" cy="50" r="7" fill="white" opacity=".4"/></svg>
+        <div class="icard-ov">
+          <div class="icard-label">Interest No. 001</div>
+          <div class="icard-title">Pokémon</div>
+          <div class="icard-sub">Collector since forever. Made an actual 3D printed trophy for DECA. Fire-type enjoyer.</div>
+        </div>
+        <div class="icard-badge" style="background:rgba(255,220,0,.15);color:#ffd700;border:1px solid rgba(255,220,0,.3)">Fire Type</div>
+      </div>
+
+      <!-- STAR WARS — animated lightsaber battle -->
+      <div class="icard starwars rev d1">
+        <div class="icard-bg"><canvas id="sw-cv" width="400" height="200" style="position:absolute;inset:0;width:100%;height:100%"></canvas></div>
+        <div class="icard-ov">
+          <div class="icard-label">A long time ago...</div>
+          <div class="icard-title">Star Wars</div>
+          <div class="icard-sub">The lightsabers on this site are not decorative.</div>
+        </div>
+        <div class="icard-badge" style="background:rgba(0,200,255,.15);color:var(--c);border:1px solid rgba(0,200,255,.3)">Jedi Order</div>
+      </div>
+
+      <!-- SPACE -->
+      <div class="icard space rev d2">
+        <div class="icard-bg"><canvas id="space-cv" width="400" height="200" style="position:absolute;inset:0;width:100%;height:100%"></canvas></div>
+        <div class="icard-ov">
+          <div class="icard-label">The Final Frontier</div>
+          <div class="icard-title">Space</div>
+          <div class="icard-sub">I CNC-machined an asteroid impact scene. Priorities intact.</div>
+        </div>
+        <div class="icard-badge" style="background:rgba(168,85,247,.15);color:var(--purple);border:1px solid rgba(168,85,247,.3)">Stargazer</div>
+      </div>
+
+      <!-- IRON MAN / SUPERHEROES -->
+      <div class="icard ironman rev">
+        <div class="icard-bg"></div>
+        <!-- Iron Man suit silhouette using SVG -->
+        <svg style="position:absolute;right:10px;bottom:0;width:100px;height:130px;opacity:.15" viewBox="0 0 100 130" fill="currentColor"><ellipse cx="50" cy="20" rx="22" ry="20"/><rect x="28" y="38" width="44" height="50" rx="8"/><rect x="15" y="40" width="12" height="40" rx="6"/><rect x="73" y="40" width="12" height="40" rx="6"/><rect x="28" y="90" width="18" height="40" rx="6"/><rect x="54" y="90" width="18" height="40" rx="6"/></svg>
+        <div class="arc-reactor">
+          <div class="arc-outer"></div>
+          <div class="arc-inner"></div>
+          <div class="arc-core"></div>
+        </div>
+        <div class="icard-ov">
+          <div class="icard-label">Earth's Mightiest</div>
+          <div class="icard-title">Superheroes</div>
+          <div class="icard-sub">Iron Man is just a guy with an engineering degree and a plan. Relatable.</div>
+        </div>
+        <div class="icard-badge" style="background:rgba(229,57,53,.15);color:#ef5350;border:1px solid rgba(229,57,53,.3)">Iron Fan</div>
+      </div>
+
+      <!-- FLASH / INVINCIBLE -->
+      <div class="icard heroes rev d1">
+        <div class="icard-bg"></div>
+        <!-- Lightning bolt SVG -->
+        <svg style="position:absolute;right:12px;top:12px;width:50px;height:70px;opacity:.6" viewBox="0 0 50 70"><polygon points="30,0 10,38 25,38 20,70 45,28 28,28" fill="#ffcc00" stroke="none"/></svg>
+        <div class="icard-ov">
+          <div class="icard-label">Fastest Alive</div>
+          <div class="icard-title">Flash &amp; Invincible</div>
+          <div class="icard-sub">Speed force, good writing, and characters who actually feel consequences.</div>
+        </div>
+        <div class="icard-badge" style="background:rgba(255,204,0,.15);color:#ffcc00;border:1px solid rgba(255,204,0,.3)">S-Class</div>
+      </div>
+
+      <!-- RUBIK'S CUBE — animated canvas -->
+      <div class="icard rubik rev d2">
+        <div class="icard-bg"></div>
+        <canvas id="rubik-cv" width="180" height="160" style="position:absolute;top:10px;right:10px;width:110px;height:100px;image-rendering:pixelated"></canvas>
+        <div class="icard-ov">
+          <div class="icard-label">3×3×3</div>
+          <div class="icard-title">Rubik's Cube</div>
+          <div class="icard-sub">Can solve it. Not fast. But it gets solved eventually — like most problems.</div>
+        </div>
+        <div class="icard-badge" style="background:rgba(61,220,132,.15);color:var(--g);border:1px solid rgba(61,220,132,.3)">Solved</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ████ ABOUT ████ -->
+<section id="about">
+  <div class="wrap">
+    <div class="shead rev"><div class="eye">Who I am</div><h2 class="sh">About Me</h2></div>
+    <div class="about-grid">
+      <div class="rev">
+        <div class="abig">I'm <em>Jashan</em> — a curious tinkerer and engineering enthusiast who loves turning ideas into real things. From robots to CNC creations, I'm all about learning, experimenting, and having fun along the way.</div>
+        <p class="ap">I've competed at <strong>OntarioSkills in robotics</strong>, co-led a 200+ member DECA chapter, won <strong>DECA Provincials</strong>, and attended the <strong>Quantum School at UWaterloo</strong>. I like working across the full stack — software, hardware, and the hot glue in between.</p>
+        <p class="ap">When I'm not building things: rewatching Iron Man, playing Pokémon, staring at the night sky, or attempting to solve a Rubik's cube with some dignity. Starting UWaterloo CE in September 2026.</p>
+      </div>
+      <div class="rev d2">
+        <div class="eye" style="margin-bottom:20px">Timeline</div>
+        <div class="tl">
+          <div class="tli"><div class="tldot"><div class="tlinner"></div></div><div><div class="tlyr">Sep 2026</div><div class="tlnm">UWaterloo — Computer Engineering</div><div class="tlde">CE '31. Starting the engineering program.</div></div></div>
+          <div class="tli"><div class="tldot"><div class="tlinner"></div></div><div><div class="tlyr">Summer 2026</div><div class="tlnm">AI Intern · Ascendance Foundry</div><div class="tlde">Building AI tools. Learning what matters in production.</div></div></div>
+          <div class="tli"><div class="tldot"><div class="tlinner"></div></div><div><div class="tlyr">Nov 2025 – Jan 2026</div><div class="tlnm">Data Analyst · Twin Brothers Wholesale</div><div class="tlde">$30K/day ops. Python, Pandas, mild panic.</div></div></div>
+          <div class="tli"><div class="tldot"><div class="tlinner"></div></div><div><div class="tlyr">Jul – Aug 2025</div><div class="tlnm">Marketing Intern · Century 21</div><div class="tlde">50+ calls/day. Built resilience and communication.</div></div></div>
+          <div class="tli"><div class="tldot"><div class="tlinner"></div></div><div><div class="tlyr">2024 – 2025</div><div class="tlnm">DECA President · Robotics · Quantum School</div><div class="tlde">Provincial champ. OntarioSkills 5th. UWaterloo quantum physics program.</div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ████ CONTACT ████ -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cg">
+      <div class="rev">
+        <div class="eye">Let's connect</div>
+        <div class="cbig">Let's<br>build<br><span>something.</span></div>
+        <p class="csub">Whether it's an internship, collaboration, or a conversation about robots — reach out.</p>
+        <div class="clinks">
+          <a href="mailto:jashandeepm2008@gmail.com?subject=Hey Jashan&body=Hi Jashan," class="cl p"><svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2 2.5h9a1 1 0 011 1v6a1 1 0 01-1 1H2a1 1 0 01-1-1v-6a1 1 0 011-1z" stroke="currentColor" stroke-width="1.4"/><path d="M1 3l5.5 3.5L12 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Email Me</a>
+          <a href="https://www.linkedin.com/in/jashan-multani-57b7b4305" target="_blank" rel="noopener" class="cl o">LinkedIn</a>
+          <a href="https://github.com/Jashan-Mshadow" target="_blank" rel="noopener" class="cl o">GitHub</a>
+          <a href="https://tinyurl.com/JashanEng" target="_blank" rel="noopener" class="cl o">Resume</a>
+        </div>
+        <div class="cnote">jashandeepm2008@gmail.com<br>(647) 864-5827 · Brampton, ON</div>
+      </div>
+      <div class="rev d2">
+        <div class="cform">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--c);text-transform:uppercase;margin-bottom:18px">Send a message</div>
+          <div id="fok" class="fok">Sent! I'll get back to you soon.</div>
+          <label class="flbl" for="fn">Name</label><input class="finp" id="fn" type="text" placeholder="Your name" autocomplete="name"/>
+          <label class="flbl" for="fe">Email</label><input class="finp" id="fe" type="email" placeholder="your@email.com" autocomplete="email"/>
+          <label class="flbl" for="fm">Message</label><textarea class="finp" id="fm" placeholder="What's on your mind?"></textarea>
+          <button class="fsub" onclick="submitForm()">Send Message →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div class="fl"><div class="flogo"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L12 3.75V9.25L7 12L2 9.25V3.75L7 1Z" stroke="rgba(0,0,0,.7)" stroke-width="1.3" stroke-linejoin="round"/></svg></div><span class="fnm">Jashan Multani</span></div>
+    <div class="flinks"><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#interests">Interests</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+    <div class="fr">© 2026 Jashan Multani<br>UWaterloo CE '31</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="mbg" id="pmodal" onclick="if(event.target===this)closeP()">
+  <div class="mbox"><div class="mhdr"><div></div><button class="mclose" onclick="closeP()">✕</button></div><div class="mbd" id="mbody"></div></div>
+</div>
+
+<script>
+/* ═════ MODE ═════ */
+let pro=(localStorage.getItem('jm-mode')==='pro');
+function applyMode(){document.body.classList.toggle('pro',pro);document.getElementById('mdesc').textContent=pro?'Clean mode active':'Space theme active';}
+applyMode();
+function toggleMode(){pro=!pro;localStorage.setItem('jm-mode',pro?'pro':'fun');applyMode();}
+
+/* ═════ LOADER ═════ */
+setTimeout(()=>{const l=document.getElementById('loader');l.classList.add('out');setTimeout(()=>l.style.display='none',560);},1700);
+
+/* ═════ STARS ═════ */
+(function(){
+  const cv=document.getElementById('star-cv'),cx=cv.getContext('2d');
+  let W,H,stars=[],shooters=[];
+  function resize(){W=cv.width=innerWidth;H=cv.height=innerHeight;stars=[];for(let i=0;i<300;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:.2+Math.random()*1.1,a:.1+Math.random()*.65,ta:Math.random()*Math.PI*2,sp:.002+Math.random()*.004})}
+  resize();addEventListener('resize',resize);
+  setInterval(()=>shooters.push({x:-60,y:Math.random()*H*.65,vx:9+Math.random()*5,vy:1+Math.random()*3,len:70+Math.random()*90}),4200);
+  function draw(){cx.clearRect(0,0,W,H);stars.forEach(s=>{s.ta+=s.sp;s.a=.1+.6*(.5+.5*Math.sin(s.ta));cx.beginPath();cx.arc(s.x,s.y,s.r,0,Math.PI*2);cx.fillStyle=`rgba(190,210,255,${s.a})`;cx.fill()});shooters.forEach((s,i)=>{cx.save();cx.globalAlpha=.7;cx.beginPath();cx.moveTo(s.x,s.y);cx.lineTo(s.x-s.len,s.y-s.len*.38);cx.strokeStyle='rgba(0,200,255,.65)';cx.lineWidth=1.2;cx.stroke();cx.restore();s.x+=s.vx;s.y+=s.vy;if(s.x>W+100)shooters.splice(i,1)});requestAnimationFrame(draw);}
+  draw();
+})();
+
+/* ═════ SCROLL ═════ */
+addEventListener('scroll',()=>{
+  const p=(scrollY/(document.body.scrollHeight-innerHeight))*100;document.getElementById('prog').style.width=p+'%';
+  document.getElementById('btt').classList.toggle('show',scrollY>400);
+  const n=document.getElementById('nav');n.style.background=scrollY>80?(pro?'rgba(244,244,248,.95)':'rgba(7,10,18,.94)'):(pro?'rgba(244,244,248,.9)':'rgba(7,10,18,.82)');
+});
+
+/* ═════ MOBILE MENU ═════ */
+function toggleMob(){const m=document.getElementById('mobmenu'),b=document.getElementById('nburg');m.classList.toggle('open');b.classList.toggle('open');document.body.style.overflow=m.classList.contains('open')?'hidden':'';}
+function closeMob(){document.getElementById('mobmenu').classList.remove('open');document.getElementById('nburg').classList.remove('open');document.body.style.overflow='';}
+
+/* ═════ REVEAL ═════ */
+const ro=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:.07});
+document.querySelectorAll('.rev').forEach(el=>ro.observe(el));
+
+/* ═════ SABER HOVER ═════ */
+['s1b','s2b'].forEach((id,i)=>{const el=document.getElementById(id);if(!el)return;const col=i===0?'#00c8ff':'#ff3c3c';el.addEventListener('mouseenter',()=>{el.style.height='6px';el.style.boxShadow=`0 0 14px ${col},0 0 40px ${col}66,0 0 80px ${col}22`});el.addEventListener('mouseleave',()=>{el.style.height='';el.style.boxShadow=''});});
+
+/* ═════ GAMEBOY ROBOT ═════ */
+(function(){
+  const can=document.getElementById('robot-canvas');if(!can)return;
+  const c=can.getContext('2d');let t=0,mode='normal';
+  const W=228,H=180;
+
+  function rr(x,y,w,h,r,fill,stroke,sw){c.beginPath();c.moveTo(x+r,y);c.lineTo(x+w-r,y);c.quadraticCurveTo(x+w,y,x+w,y+r);c.lineTo(x+w,y+h-r);c.quadraticCurveTo(x+w,y+h,x+w-r,y+h);c.lineTo(x+r,y+h);c.quadraticCurveTo(x,y+h,x,y+h-r);c.lineTo(x,y+r);c.quadraticCurveTo(x,y,x+r,y);c.closePath();if(fill){c.fillStyle=fill;c.fill()}if(stroke){c.strokeStyle=stroke;c.lineWidth=sw||1;c.stroke()}}
+
+  // GB-style limited palette: green shades on darker bg
+  const GB_BG='#0f380f',GB_D='#306230',GB_L='#8bac0f',GB_W='#9bbc0f';
+  
+  function draw(t){
+    c.clearRect(0,0,W,H);
+    
+    // Scanline overlay
+    c.fillStyle=GB_BG;c.fillRect(0,0,W,H);
+    for(let y=0;y<H;y+=2){c.fillStyle='rgba(0,0,0,.15)';c.fillRect(0,y,W,1)}
+
+    const cx=W/2,cy=H/2-10,bob=Math.sin(t*.042)*3;
+    
+    // Body
+    rr(cx-24,cy-2+bob,48,58,8,GB_D,GB_L,1.5);
+    const bg=c.createLinearGradient(cx-24,cy,cx+24,cy+58);bg.addColorStop(0,'rgba(139,172,15,.15)');bg.addColorStop(1,'transparent');rr(cx-24,cy-2+bob,48,58,8,bg);
+    // Chest screen
+    const sp=.4+Math.sin(t*.08)*.3;
+    rr(cx-14,cy+8+bob,28,16,4,`rgba(155,188,15,${sp*.18})`,GB_L,1);
+    c.save();c.beginPath();rr(cx-14,cy+8+bob,28,16,4);c.clip();
+    for(let i=0;i<3;i++){const ly=cy+10+bob+((i*5+t*.4)%16);c.fillStyle=`rgba(155,188,15,${.3+Math.sin(t*.1+i)*.12})`;c.fillRect(cx-10,ly,4+Math.sin(t+i*1.3)*4,1.5)}
+    c.restore();
+    const cp=.4+Math.sin(t*.1)*.35;c.beginPath();c.arc(cx,cy+34+bob,3.5,0,Math.PI*2);c.fillStyle=`rgba(155,188,15,${cp})`;c.fill();c.beginPath();c.arc(cx,cy+34+bob,2,0,Math.PI*2);c.fillStyle=GB_W;c.fill();
+    
+    // Left arm
+    rr(cx-36,cy+4+bob,11,28,5,GB_D,GB_L,1);
+    // Right arm wave
+    c.save();c.translate(cx+25,cy+8+bob);const wa=Math.sin(t*.07)*.5+.25;c.rotate(-wa);
+    rr(0,-4,11,28,5,GB_D,GB_L,1);
+    c.translate(3,26);c.beginPath();c.arc(2,0,6,0,Math.PI*2);c.fillStyle='rgba(155,188,15,.12)';c.fill();c.strokeStyle=GB_L;c.lineWidth=1;c.stroke();
+    for(let f=0;f<3;f++){const fa=-Math.PI/2+(f-1)*.42+Math.sin(t*.14+f)*.28;c.beginPath();c.moveTo(2,0);c.lineTo(2+Math.cos(fa)*8,Math.sin(fa)*8);c.strokeStyle='rgba(139,172,15,.7)';c.lineWidth=2;c.lineCap='round';c.stroke()}
+    c.restore();
+
+    // Neck
+    rr(cx-7,cy-10+bob,14,12,4,GB_D,GB_L,1);
+    // Head
+    c.save();c.translate(cx,cy-42+bob+Math.sin(t*.03)*1.5);
+    rr(-26,-22,52,42,10,GB_D,GB_L,1.5);
+    const hg=c.createLinearGradient(-26,-22,26,20);hg.addColorStop(0,'rgba(139,172,15,.12)');hg.addColorStop(1,'transparent');rr(-26,-22,52,42,10,hg);
+    // Antenna
+    c.beginPath();c.moveTo(0,-22);c.lineTo(0,-36);c.strokeStyle='rgba(139,172,15,.5)';c.lineWidth=1.5;c.lineCap='round';c.stroke();
+    const ap=.35+Math.sin(t*.12)*.45;c.beginPath();c.arc(0,-36,3.5,0,Math.PI*2);c.fillStyle=`rgba(155,188,15,${ap})`;c.fill();c.beginPath();c.arc(0,-36,2,0,Math.PI*2);c.fillStyle=GB_W;c.fill();
+    // Visor
+    rr(-19,-10,38,14,5,'rgba(155,188,15,.08)','rgba(139,172,15,.5)',1.5);
+    // Eyes
+    const ee=.5+Math.sin(t*.1)*.35;
+    [-8,8].forEach(ex=>{c.beginPath();c.arc(ex,-3,4.5,0,Math.PI*2);c.fillStyle=`rgba(155,188,15,${ee})`;c.fill();c.beginPath();c.arc(ex,-3,2.5,0,Math.PI*2);c.fillStyle=GB_W;c.fill();c.beginPath();c.arc(ex+.5,-3,1.2,0,Math.PI*2);c.fillStyle=GB_BG;c.fill()});
+    // Smile
+    c.beginPath();c.arc(0,7,8,.1,Math.PI-.1);c.strokeStyle='rgba(139,172,15,.6)';c.lineWidth=1.4;c.lineCap='round';c.stroke();
+    c.restore();
+    // Legs
+    [-11,11].forEach((lx,i)=>{c.save();c.translate(cx+lx,cy+56+bob);c.rotate(Math.sin(t*.05+i*Math.PI)*.055);rr(-6,0,12,24,4,GB_D,GB_L,1);c.restore()});
+    // Feet
+    [-11,11].forEach(lx=>{c.beginPath();c.ellipse(cx+lx,cy+79+bob,8,4,0,0,Math.PI*2);c.fillStyle='rgba(48,98,48,.8)';c.fill();c.strokeStyle=GB_L;c.lineWidth=.8;c.stroke()});
+
+    // Pixel grid overlay for GB effect
+    c.fillStyle='rgba(15,56,15,.08)';
+    for(let px=0;px<W;px+=2)for(let py=0;py<H;py+=2)c.fillRect(px,py,1,1);
+  }
+
+  const QUIPS=['PRESS START ▶','PLAYER 1 READY','hire my human pls','ERROR 404:\nFREE TIME MISSING','git commit -m\n"trust me"','the claw was a\nbutterfingers 😅','QUANTUM MODE ⚛️','BUILDING... ▓▓▓░░','UWaterloo CE\nloading...','he beats Pokémon\nwith hot glue lol'];
+  let qi=0;const sp=document.getElementById('gb-speech');
+  setInterval(()=>{qi=(qi+1)%QUIPS.length;sp.innerHTML=QUIPS[qi].replace('\n','<br>')},2800);
+
+  window.gbAction=function(btn){
+    const reactions={a:['beep boop! 🎮','A button does\nnothing. Nice try.','JASHAN.EXE\nhas entered the chat'],b:['boop beep 👾','B means\ngo back? idk','404: B purpose\nnot found'],select:['SELECT: cheat code\nnot found','skipping cutscene...\n(there is no cutscene)','SELECTED!\n(nothing happened)'],start:['GAME START\n▓▓▓▓▓▓▓▓░░','loading Jashan\nMultani...','START: already\nrunning tho']};
+    const opts=reactions[btn]||['🎮'];
+    sp.innerHTML=opts[Math.floor(Math.random()*opts.length)].replace('\n','<br>');
+  };
+
+  (function anim(){t++;draw(t);requestAnimationFrame(anim)})();
+})();
+
+/* ═════ POKÉMON INTEREST CARD ═════ */
+(function(){
+  const cv=document.getElementById('pkmn-cv');if(!cv)return;
+  const c=cv.getContext('2d');let t=0;
+  const CW=400,CH=420;
+  const balls=Array.from({length:8},()=>({x:Math.random()*CW,y:Math.random()*CH,vx:(Math.random()-.5)*1.4,vy:(Math.random()-.5)*1.4,r:18+Math.random()*28,a:.55+Math.random()*.35}));
+  function draw(){
+    c.clearRect(0,0,CW,CH);
+    balls.forEach(b=>{
+      b.x+=b.vx;b.y+=b.vy;
+      if(b.x-b.r<0||b.x+b.r>CW)b.vx*=-1;
+      if(b.y-b.r<0||b.y+b.r>CH)b.vy*=-1;
+      c.save();c.globalAlpha=b.a;
+      // Bottom red half
+      c.beginPath();c.arc(b.x,b.y,b.r,0,Math.PI*2);c.fillStyle='#880000';c.fill();
+      // Top white half
+      c.beginPath();c.arc(b.x,b.y,b.r,Math.PI,0);c.fillStyle='#eeeeee';c.fill();
+      // Divider line
+      c.strokeStyle='#111';c.lineWidth=2;c.beginPath();c.arc(b.x,b.y,b.r,0,Math.PI*2);c.stroke();
+      c.beginPath();c.moveTo(b.x-b.r,b.y);c.lineTo(b.x+b.r,b.y);c.stroke();
+      // Center button
+      c.beginPath();c.arc(b.x,b.y,b.r*.25,0,Math.PI*2);c.fillStyle='#fff';c.fill();c.stroke();
+      c.beginPath();c.arc(b.x,b.y,b.r*.14,0,Math.PI*2);c.fillStyle='#888';c.fill();
+      c.restore();
+    });
+    t++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═════ STAR WARS INTEREST CARD ═════ */
+(function(){
+  const cv=document.getElementById('sw-cv');if(!cv)return;
+  const c=cv.getContext('2d');let t=0;
+  function resize(){cv.width=cv.offsetWidth||400;cv.height=cv.offsetHeight||200}
+  resize();addEventListener('resize',resize);
+  function draw(){
+    const W=cv.width,H=cv.height;
+    c.clearRect(0,0,W,H);
+    c.fillStyle='#000510';c.fillRect(0,0,W,H);
+    // Stars
+    for(let i=0;i<80;i++){const x=(i*37+t*.05)%W,y=(i*53)%H;c.fillStyle=`rgba(200,210,255,${.2+Math.sin(t*.05+i)*.15})`;c.fillRect(x,y,1,1)}
+    // Blue saber (left to right, angled down)
+    const bF=.88+Math.sin(t*.15)*.08;
+    c.save();c.translate(20,H*.7);c.rotate(-.28);
+    c.shadowColor='#00c8ff';c.shadowBlur=20;
+    c.strokeStyle=`rgba(0,200,255,${bF})`;c.lineWidth=6;c.lineCap='round';
+    c.beginPath();c.moveTo(0,0);c.lineTo(W*.6,0);c.stroke();
+    c.strokeStyle='rgba(255,255,255,.9)';c.lineWidth=2;c.beginPath();c.moveTo(0,0);c.lineTo(W*.6,0);c.stroke();
+    c.shadowBlur=0;c.fillStyle='#aaa';c.fillRect(-32,-6,30,12);c.restore();
+    // Red saber (right to left, angled up)
+    const rF=.88+Math.sin(t*.15+1.2)*.08;
+    c.save();c.translate(W-20,H*.3);c.rotate(Math.PI+.28);
+    c.shadowColor='#ff3c3c';c.shadowBlur=20;
+    c.strokeStyle=`rgba(255,60,60,${rF})`;c.lineWidth=6;c.lineCap='round';
+    c.beginPath();c.moveTo(0,0);c.lineTo(W*.6,0);c.stroke();
+    c.strokeStyle='rgba(255,200,200,.9)';c.lineWidth=2;c.beginPath();c.moveTo(0,0);c.lineTo(W*.6,0);c.stroke();
+    c.shadowBlur=0;c.fillStyle='#888';c.fillRect(-32,-6,30,12);c.restore();
+    // Clash glow at center
+    const cs=.7+Math.sin(t*.3)*.3;
+    const cx2=W/2,cy2=H/2;
+    const grad=c.createRadialGradient(cx2,cy2,0,cx2,cy2,50);
+    grad.addColorStop(0,`rgba(255,255,180,${.95*cs})`);
+    grad.addColorStop(.4,`rgba(200,140,40,${.5*cs})`);
+    grad.addColorStop(1,'transparent');
+    c.fillStyle=grad;c.beginPath();c.arc(cx2,cy2,60,0,Math.PI*2);c.fill();
+    // Sparks
+    if(Math.sin(t*.4)>.5){for(let i=0;i<10;i++){const a=(i/10)*Math.PI*2+t*.15,sp=15+Math.random()*35;c.fillStyle=`rgba(255,${150+Math.random()*105},0,${.7+Math.random()*.3})`;c.beginPath();c.arc(cx2+Math.cos(a)*sp,cy2+Math.sin(a)*sp,1+Math.random()*2.5,0,Math.PI*2);c.fill()}}
+    t++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═════ SPACE INTEREST CARD ═════ */
+(function(){
+  const cv=document.getElementById('space-cv');if(!cv)return;
+  const c=cv.getContext('2d');let t=0;
+  function resize(){cv.width=cv.offsetWidth||400;cv.height=cv.offsetHeight||200}
+  resize();addEventListener('resize',resize);
+  const stars2=Array.from({length:100},()=>({x:Math.random(),y:Math.random(),r:.5+Math.random(),a:.15+Math.random()*.7,sp:.002+Math.random()*.004,ta:Math.random()*Math.PI*2}));
+  function draw(){
+    const W=cv.width,H=cv.height;
+    c.clearRect(0,0,W,H);
+    c.fillStyle='#000510';c.fillRect(0,0,W,H);
+    // Nebula
+    const ng=c.createRadialGradient(W*.5,H*.4,0,W*.5,H*.4,W*.55);ng.addColorStop(0,'rgba(30,0,80,.25)');ng.addColorStop(1,'transparent');c.fillStyle=ng;c.fillRect(0,0,W,H);
+    // Stars
+    stars2.forEach(s=>{s.ta+=s.sp;s.a=.15+.6*(.5+.5*Math.sin(s.ta));c.beginPath();c.arc(s.x*W,s.y*H,s.r,0,Math.PI*2);c.fillStyle=`rgba(200,215,255,${s.a})`;c.fill()});
+    // Saturn
+    const px=W*.78,py=H*.28,pr=Math.min(W,H)*.13;
+    c.save();c.translate(px,py);
+    c.strokeStyle='rgba(100,140,220,.45)';c.lineWidth=7;c.beginPath();c.ellipse(0,0,pr*1.85,pr*.42,-.18,0,Math.PI*2);c.stroke();
+    c.beginPath();c.arc(0,0,pr,0,Math.PI*2);const pg=c.createRadialGradient(-pr*.3,-pr*.3,0,0,0,pr);pg.addColorStop(0,'#7aaae8');pg.addColorStop(1,'#2a4a99');c.fillStyle=pg;c.fill();c.restore();
+    // Mars
+    const mx=W*.16,my=H*.72,mr=Math.min(W,H)*.07;
+    c.beginPath();c.arc(mx,my,mr,0,Math.PI*2);const mg=c.createRadialGradient(mx-mr*.3,my-mr*.3,0,mx,my,mr);mg.addColorStop(0,'#e08060');mg.addColorStop(1,'#8a3020');c.fillStyle=mg;c.fill();
+    // Shooting star
+    const phase=(t+30)%200;if(phase<25){const pct=phase/25;c.save();c.globalAlpha=Math.sin(pct*Math.PI);c.strokeStyle='rgba(200,220,255,.9)';c.lineWidth=1.5;c.beginPath();c.moveTo(W*(.1+pct*.4),H*(.1+pct*.2));c.lineTo(W*(.1+pct*.4)-60,H*(.1+pct*.2)-30);c.stroke();c.restore()}
+    t++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═════ RUBIK'S CUBE ═════ */
+(function(){
+  const cv=document.getElementById('rubik-cv');if(!cv)return;
+  const c=cv.getContext('2d');
+  cv.width=180;cv.height=160;
+  let t=0;
+  const COLS=['#e53935','#ff8800','#fdd835','#43a047','#1e88e5','#ffffff'];
+  // Draw one face of cube (simplified isometric)
+  function drawFace(offX,offY,size,faceIdx,shear){
+    for(let r=0;r<3;r++)for(let col=0;col<3;col++){
+      const ci=(faceIdx+(r*3+col)+Math.floor(t*.01))%6;
+      const x=offX+col*size+r*shear;
+      const y=offY+r*size*0.5-col*size*shear*0.1;
+      c.fillStyle=COLS[ci];
+      c.beginPath();c.rect(x+1,y+1,size-2,size-2);c.fill();
+      c.strokeStyle='rgba(0,0,0,.6)';c.lineWidth=1;c.stroke();
+    }
+  }
+  function draw(){
+    c.clearRect(0,0,180,160);
+    c.fillStyle='#0a0a18';c.fillRect(0,0,180,160);
+    const S=18,rot=Math.sin(t*.012)*.15;
+    // Top face (parallelogram)
+    c.save();c.translate(90,20);c.rotate(rot);
+    for(let r=0;r<3;r++)for(let col=0;col<3;col++){
+      const ci=(r+col+Math.floor(t*.02))%6;
+      c.fillStyle=COLS[ci];c.beginPath();
+      const x=(col-r)*S*.8,y=(col+r)*S*.4;
+      c.moveTo(x,y);c.lineTo(x+S*.8,y-S*.4);c.lineTo(x+S*1.6,y);c.lineTo(x+S*.8,y+S*.4);c.closePath();c.fill();
+      c.strokeStyle='rgba(0,0,0,.5)';c.lineWidth=.8;c.stroke();
+    }
+    c.restore();
+    // Left face
+    c.save();c.translate(90-S*1.2,20+S*1.2);c.rotate(rot);
+    for(let r=0;r<3;r++)for(let col=0;col<3;col++){
+      const ci=(r+col*2+Math.floor(t*.015)+2)%6;
+      c.fillStyle=COLS[ci];c.beginPath();
+      const x=-col*S*.8,y=col*S*.4+r*S*.8;
+      c.moveTo(x,y);c.lineTo(x-S*.8,y+S*.4);c.lineTo(x-S*.8,y+S*.4+S*.8);c.lineTo(x,y+S*.8);c.closePath();c.fill();
+      c.strokeStyle='rgba(0,0,0,.5)';c.lineWidth=.8;c.stroke();
+    }
+    c.restore();
+    // Right face
+    c.save();c.translate(90+S*1.2,20+S*1.2);c.rotate(rot);
+    for(let r=0;r<3;r++)for(let col=0;col<3;col++){
+      const ci=(r+col+Math.floor(t*.018)+4)%6;
+      c.fillStyle=COLS[ci];c.beginPath();
+      const x=col*S*.8,y=col*S*.4+r*S*.8;
+      c.moveTo(x,y);c.lineTo(x+S*.8,y+S*.4);c.lineTo(x+S*.8,y+S*.4+S*.8);c.lineTo(x,y+S*.8);c.closePath();c.fill();
+      c.strokeStyle='rgba(0,0,0,.5)';c.lineWidth=.8;c.stroke();
+    }
+    c.restore();
+    t++;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ═════ SOLAR SYSTEM SKILLS ═════ */
+const SKILLS=[
+  {label:'Python',icon:'🐍',color:'#3ddc84',ring:0,speed:18,size:50,sa:0,examples:['Data analysis at Twin Brothers (~$30K/day)','Automation scripts & pipelines','AI tools at Ascendance Foundry']},
+  {label:'AI / ML',icon:'🤖',color:'#f472b6',ring:0,speed:18,size:50,sa:120,examples:['Ascendance Foundry AI internship','Predictive inventory models','Pattern recognition']},
+  {label:'JavaScript',icon:'⚡',color:'#fbbf24',ring:0,speed:18,size:44,sa:240,examples:['This portfolio site','Interactive UI components']},
+  {label:'C++',icon:'⚙️',color:'#a78bfa',ring:1,speed:28,size:44,sa:30,examples:['OntarioSkills robot motor logic','Arduino robot arm','Line follower']},
+  {label:'Pandas',icon:'📊',color:'#34d399',ring:1,speed:28,size:42,sa:120,examples:['Wholesale demand forecasting','Sales trend analysis']},
+  {label:'Excel',icon:'📈',color:'#6ee7b7',ring:1,speed:28,size:38,sa:210,examples:['Century 21 buyer segmentation','Market analysis dashboards']},
+  {label:'Arduino',icon:'💡',color:'#22d3ee',ring:1,speed:28,size:44,sa:300,examples:['Smart Trash Can','Line Following Robot','Robot Arm servo control']},
+  {label:'SolidWorks',icon:'🔩',color:'#a78bfa',ring:2,speed:42,size:40,sa:0,examples:['Pokémon Trophy design','3D part modelling']},
+  {label:'CNC Mill',icon:'🏭',color:'#fb923c',ring:2,speed:42,size:40,sa:52,examples:['Metal Tag asteroid design','Airplane chocolate mould']},
+  {label:'3D Print',icon:'🖨️',color:'#c084fc',ring:2,speed:42,size:36,sa:104,examples:['Pokémon Trophy','Prototype housings']},
+  {label:'Metal Lathe',icon:'🔧',color:'#fdba74',ring:2,speed:42,size:40,sa:156,examples:['Custom aluminum pen — 5" precision','Knurling & threading']},
+  {label:'Circuits',icon:'⚛️',color:'#67e8f9',ring:2,speed:42,size:36,sa:208,examples:['Night light photoresistor circuit','Robot arm soldering']},
+  {label:'V-Carve',icon:'🎨',color:'#f9a8d4',ring:2,speed:42,size:36,sa:260,examples:['Metal Tag toolpath design','Chocolate mould profiling']},
+  {label:'Git',icon:'📦',color:'#86efac',ring:2,speed:42,size:34,sa:312,examples:['Version control for all projects','Portfolio repo']},
+];
+const RADII=[120,210,296];
+const so=document.getElementById('solar');
+RADII.forEach(r=>{const el=document.createElement('div');el.className='orb';el.style.cssText=`width:${r*2}px;height:${r*2*.42}px`;so.appendChild(el)});
+const tip=document.createElement('div');tip.className='sktip';tip.innerHTML='<div class="stname" id="tn"></div><div id="ti"></div>';document.body.appendChild(tip);
+function moveTip(e){let x=e.clientX+16,y=e.clientY-8;if(x+240>innerWidth)x=e.clientX-248;if(y+180>innerHeight)y=e.clientY-180;tip.style.left=x+'px';tip.style.top=y+'px'}
+const planets2=SKILLS.map(sk=>{
+  const wrap=document.createElement('div');wrap.className='pw';
+  const body=document.createElement('div');body.className='pb';
+  const dot=document.createElement('div');dot.className='pd';
+  dot.style.cssText=`width:${sk.size}px;height:${sk.size}px;background:radial-gradient(circle at 38% 34%,${sk.color}28,${sk.color}10);border:1.5px solid ${sk.color}55;font-size:${Math.round(sk.size*.42)}px;line-height:${sk.size}px;text-align:center`;
+  dot.textContent=sk.icon;
+  const lbl=document.createElement('div');lbl.className='pl';lbl.textContent=sk.label;
+  body.append(dot,lbl);wrap.appendChild(body);so.appendChild(wrap);
+  dot.addEventListener('mouseenter',e=>{document.getElementById('tn').innerHTML=`<span style="width:8px;height:8px;border-radius:50%;background:${sk.color};display:inline-block;margin-right:5px;flex-shrink:0"></span>${sk.label}`;document.getElementById('ti').innerHTML=sk.examples.map(ex=>`<div class="stitem">→ ${ex}</div>`).join('');tip.classList.add('show');moveTip(e)});
+  dot.addEventListener('mouseleave',()=>tip.classList.remove('show'));
+  dot.addEventListener('mousemove',moveTip);
+  return{el:wrap,body,r:RADII[sk.ring],spd:sk.speed,angle:sk.sa*(Math.PI/180)};
+});
+let solT=0;
+(function solAnim(){solT+=.016;planets2.forEach(({el,body,r,spd,angle})=>{const a=angle+solT*(1/spd)*Math.PI*2;const x=Math.cos(a)*r,y=Math.sin(a)*r*.42;el.style.transform=`translate(${x}px,${y}px)`;const behind=Math.sin(a)<-.15;body.style.opacity=behind?.3:1;body.style.zIndex=behind?0:6});requestAnimationFrame(solAnim)})();
+
+/* ═════ TYPEWRITER (in GB terminal if hero has one — here just run for effect) ═════ */
+// (terminal is visible only on wider screens in the hero-left section if we add it, omitted for now)
+
+/* ═════ PROJECT DATA & MODAL ═════ */
+function fp(cat,btn){document.querySelectorAll('.pf').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('.pcard[data-cat]').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none'})}
+const PD={
+  ontario:{title:'OntarioSkills Competition Robot',cat:'Robotics · 5th Place Provincially',tags:['Mechanical Design','C++','Circuits','Motor Control','Team Build'],video:'https://drive.google.com/file/d/1fR75vi9M0RzNh1PL7xDKsy-mYcyI_R0Q/view',imgs:['../HTML/OntarioSkills.png'],desc:'Think of a warehouse worker, but made of metal, wires, and code. Our robotics team built a robot with a motorized claw designed to lift, carry, and drop boxes while navigating a set course.\n\nThe claw, powered by precise motor control, can grab and hold different objects securely, while the drivetrain lets the robot move smoothly in multiple directions. Sensors and programming worked together so the robot could align with targets, pick up boxes, and transport them without tipping.',reflect:'Early on, the claw was basically a butterfingers — it kept dropping boxes mid-lift. After adjusting grip strength and timing in the code, we finally got it to hold tight. Another issue was weight distribution: when the claw lifted heavier loads, the whole robot tilted forward like it was about to face-plant. Reinforcing the chassis and tweaking motor power fixed that.'},
+  linerobot:{title:'Line Following + Obstacle Avoidance Robot',cat:'Arduino Build · In Progress',tags:['Arduino Uno','IR Sensor','Ultrasonic','C++','Autonomous'],video:'https://drive.google.com/file/d/1SqxoAsFTyD1_NzL5B5D8khfqfOgFGG6l/view',imgs:['../HTML/Line Following.png'],desc:'Two IR sensors detect a black line on the floor, continuously adjusting direction. An ultrasonic sensor handles obstacles — detect, stop, back up, reroute, find the line, continue.',reflect:'Tuning smooth line-following without drifting was the hardest part — small timing changes had surprisingly big effects. Making obstacle avoidance reliable took a lot of iterations.'},
+  trash:{title:'Smart Trash Can',cat:'Arduino Build · Completed',tags:['Arduino Uno','Ultrasonic Sensor','Servo Motor','Mechanical Design'],video:null,imgs:['../HTML/SmartTrashBin.jpg'],desc:'A hands-free Arduino bin that opens automatically when someone approaches. The first power setup I tried didn\'t give the servo enough torque, so the lid barely moved (sad).',reflect:'I also learned that a regular popsicle stick arm will just bend under load, so I reinforced it. Fine-tuning the ultrasonic sensor\'s detection range was another hurdle — too short and you have to wave your hand like crazy, too far and it opens when you just walk past.'},
+  robotarm:{title:'Arduino Robot Arm',cat:'Arduino Build · Completed',tags:['Arduino Uno','Servo Motors','Potentiometers','Mechanical Design','Soldering'],video:'https://drive.google.com/file/d/1vpxHrhNGfxlD__1OypEyjKFTa7Uw-V9u/view',imgs:['../HTML/RobotArmImage1.png','../HTML/RobotArmImage2.png'],desc:'Three servo motors, three potentiometers, popsicle sticks — leaves the workshop as a robotic arm. Each potentiometer controls one axis: up/down, left/right, wrist rotation.',reflect:'The up-down servo kept exceeding its range — reprogrammed from 0–180° to 90–180°. Hot glue was the unsung hero of this entire project.'},
+  metaltag:{title:'Metal Tag – Asteroid Impact Design',cat:'CNC / Manufacturing · Completed',tags:['CNC Milling','V-Carve','Vertical Cutoff Saw','Filing','Aluminum'],video:null,imgs:['../HTML/Asteroid.jpg','../HTML/Asteroid2.jpg'],desc:'3"×2" aluminum piece turned into a custom asteroid impact scene. V-Carve design with three CNC bits to create layered depth.',reflect:'Getting comfortable with the CNC mill took time. Edges needed more finishing work than expected.'},
+  metalpen:{title:'Metal Pen (Metal Lathe)',cat:'Manufacturing · Completed',tags:['Metal Lathe','Knurling','Threading','Orthographic Drawing','Aluminum'],video:null,imgs:['../HTML/Pen1.jpg','../HTML/Pen2.jpg','../HTML/Pen3.jpg','../HTML/Pen4.jpg'],desc:'Custom aluminum pen turned on a metal lathe — drilled for the ink cartridge, knurled for grip, threaded for a precise screw fit.',reflect:'Precise alignment was the hardest part, especially threading. Every stage built on the accuracy of the previous one.'},
+  pokemon:{title:'3D Printed Pokémon Trophy',cat:'3D Printing · Completed',tags:['Tinkercad','SolidWorks','3D Printing','FDM'],video:null,imgs:['../HTML/PokemonTrophy1.jpg','../HTML/PokemonTrophy2.jpg'],desc:'Custom Pokémon trophy modelled in Tinkercad, refined in SolidWorks. If you\'re winning provincials, the trophy should match the energy.',reflect:'Finding the right balance between detail and strength took experimentation — too much detail and it snapped.'},
+  airplane:{title:'Airplane Chocolate Mould',cat:'CNC / Manufacturing · Completed',tags:['CNC Milling','V-Carve','Cutoff Saw','Aluminum'],video:null,imgs:['../HTML/Airplane1.png','../HTML/Airplane2.png','../HTML/Airplane3.png'],desc:'2×2 inch aluminum mould with a 3D airplane across two elevations. The final product is a chocolate airplane that flies directly into your mouth.',reflect:'Over-milled on the first attempt — had to restart. Every step reinforced: know your machine\'s limits first.'},
+  nightlight:{title:'Night Light',cat:'Circuit Build · Completed',tags:['Photoresistor','LED Circuit','Soldering','Perfboard'],video:null,imgs:['../HTML/Nightlight.jpg','../HTML/Nightlight2.jpg'],desc:'Circuit that auto-activates LEDs when ambient light drops. Photoresistor + resistor divider + transistor logic, all soldered onto perfboard.',reflect:'Learned the hard way that too much heat kills an LED instantly. Once the soldering technique was dialed in, the build came together cleanly.'}
+};
+let curSlider={imgs:[],idx:0};
+function makeSlider(imgs){if(!imgs||!imgs.length)return'';if(imgs.length===1)return`<div class="slwrap"><img class="slimg" src="${imgs[0]}" alt="Project" style="min-width:100%"/></div>`;curSlider={imgs,idx:0};return`<div class="slwrap"><div class="sltrack" id="slt">${imgs.map(s=>`<img class="slimg" src="${s}" alt="Project"/>`).join('')}</div><button class="slbtn slprev" onclick="slideDir(-1)">‹</button><button class="slbtn slnext" onclick="slideDir(1)">›</button></div><div class="sldots" id="sldots">${imgs.map((_,i)=>`<button class="sdot${i===0?' on':''}" onclick="goSlide(${i})"></button>`).join('')}</div>`;}
+function goSlide(idx){curSlider.idx=idx;const t=document.getElementById('slt');if(t)t.style.transform=`translateX(-${idx*100}%)`;document.querySelectorAll('.sdot').forEach((d,i)=>d.classList.toggle('on',i===idx))}
+function slideDir(dir){goSlide((curSlider.idx+dir+curSlider.imgs.length)%curSlider.imgs.length)}
+function openP(id){const p=PD[id];if(!p)return;const vid=p.video?`<a href="${p.video}" target="_blank" class="mvid">▶ Watch Video Demo</a><br>`:'';document.getElementById('mbody').innerHTML=`<div class="meye">${p.cat}</div><div class="mtitle">${p.title}</div><div class="mtags">${p.tags.map(t=>`<span class="mtag">${t}</span>`).join('')}</div>${makeSlider(p.imgs)}${vid}<div class="mlbl">About This Project</div><div class="mtxt">${p.desc.replace(/\n\n/g,'</div><div class="mtxt">').replace(/\n/g,'<br>')}</div><div class="mreflect"><div class="mlbl" style="margin-bottom:6px">Reflection & Challenges</div><div class="mtxt" style="margin-bottom:0">${p.reflect}</div></div>`;document.getElementById('pmodal').classList.add('open');document.body.style.overflow='hidden';}
+function closeP(){document.getElementById('pmodal').classList.remove('open');document.body.style.overflow=''}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeP();if(e.key==='ArrowLeft')slideDir(-1);if(e.key==='ArrowRight')slideDir(1)});
+
+/* ═════ CONTACT FORM ═════ */
+function submitForm(){const n=document.getElementById('fn').value.trim(),e=document.getElementById('fe').value.trim(),m=document.getElementById('fm').value.trim();if(!n||!e||!m){alert('Please fill in all fields.');return}window.location.href=`mailto:jashandeepm2008@gmail.com?subject=${encodeURIComponent('Portfolio message from '+n)}&body=${encodeURIComponent('Name: '+n+'\nEmail: '+e+'\n\nMessage:\n'+m)}`;document.getElementById('fok').style.display='block';['fn','fe','fm'].forEach(id=>document.getElementById(id).value='');}
+</script>
+</body>
+</html>
+
